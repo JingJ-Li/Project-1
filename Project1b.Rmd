@@ -1,0 +1,113 @@
+---
+title: "Project 1"
+author: "Jingjing Li"
+date: "6/13/2021"
+output: github_document
+    toc: true  
+    toc_depth: 1  
+    toc_float: false  
+    
+---
+# Contents
+## Introduction  
+This project aims to create a vignette for reading and summarizing data from the National Hockey League’s (NHL) API.  
+
+
+## Link to repo  
+## Required packages  
+ * httr  
+ * jsonlite  
+ 
+## Functions  
+### NHL records API 
+```{r}
+# load package to get data from API link
+library(httr)
+library(jsonlite)
+library(dplyr)
+
+# Construct a function for API data acquisition
+
+    get_data<- function (base_url,link,...){
+    base_url <- "https://records.nhl.com/site/api"
+    full_url <- paste0(base_url, link )
+    get_url <- GET (full_url)
+    record_txt <- content (get_url, "text", encoding = "UTF-8")
+    record_json <- fromJSON(record_txt, flatten=TRUE)
+    Data_df <- data.frame( record_json)
+    return(Data_df)
+    }
+  
+  franchise_Data <- get_data (base_url, "/franchise")
+  franchise_Data
+  
+  team_total_Data <- get_data (base_url, "/franchise-team-totals",1 ,
+                                 "Montréal Canadiens")
+  team_total_Data
+  
+  season_Data <- get_data (base_url,  
+ "/site/api/franchise-season-records?cayenneExp=franchiseId=ID")
+  season_Data
+  
+  goalie_Data<-  get_data (base_url,
+     "/franchise-goalie-records?cayenneExp=franchiseId=ID")
+  goalie_Data
+  
+  skater_Data <-  get_data (base_url,"/franchise-skater-records?cayenneExp=franchiseId=ID")
+  
+  detail_Data<- get_data (base_url,
+  "/franchise-detail?cayenneExp=mostRecentTeamId=ID")
+  
+  franchise <- function (ID, name){
+    Data_ID <- filter(franchise_Data, data.id == ID & data.fullName ==name)
+    return (Data_ID )
+  }
+    record <- franchise (1 , "Montréal Canadiens")
+    record
+```
+
+### NHL stats API
+
+```{r}
+  team <- GET ("https://statsapi.web.nhl.com/api/v1/teams")
+  team_txt <- content (team , "text", encoding="UTF-8")
+  team_json <- fromJSON(team_txt, flatten=TRUE) 
+  team_df <- data.frame(team_json)
+  team_df 
+    
+    
+  team_ID <- GET ("https://statsapi.web.nhl.com/api/v1/teams/ID")
+  team_ID_txt <- content (team_ID, "text", encoding="UTF-8")
+  team_ID_json <- fromJSON(team_ID_txt, flatten=TRUE)
+  team_ID_df <- data.frame(team_ID_json)
+  team_ID_df
+
+stats <- function(name, id, ... ) {
+  base_url2 <- "https://statsapi.web.nhl.com/api/v1/" 
+  if (missing(id)) {
+    apiurl<- paste0 (base_url2, name,"/?expand=team.stats")
+  }
+    else {
+      apiurl <- paste0 (base_url2, name, "/",id, "/?expand=team.stats")
+    }
+    team <- GET (apiurl)
+    team_txt <- content (team, "text", encoding="UTF-8")
+    stats_json <- fromJSON(team_txt, flatten=TRUE)
+    team_df <- data.frame(stats_json) 
+} 
+   stats_url <- stats ("New York Islanders" )
+   
+
+    get_stats <- function (base_url2,...){
+    base_url2 <-"https://statsapi.web.nhl.com/api/v1"
+    full_url2 <- paste0 (base_url2,"/?expand=team.stats")
+    get_url2 <- GET (full_url2)
+    stats_txt <- content (get_url2, "text", encoding="UTF-8")
+    stats_json <- fromJSON(stats_txt, flatten=TRUE)
+    stats_df <- data.frame(stats_json)
+    return(stats_df)
+  }
+   stats_Data <- get_stats(base_url2)
+```
+## wrapper function
+## Exploratory Data analysis 

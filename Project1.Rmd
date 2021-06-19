@@ -1,0 +1,267 @@
+---
+title: "Project 1"
+author: "Jingjing Li"
+date: "6/13/2021"
+output: github_document
+    toc: true  
+    toc_depth: 1  
+    toc_float: false  
+    
+---
+# Contents
+## Introduction  
+This project aims to create a vignette for reading and summarizing data from the National Hockey League’s (NHL) API.  
+
+
+## Link to repo  
+## Required packages  
+ * httr  
+ * jsonlite  
+ 
+## Functions  
+### NHL records API 
+#### Load packages
+```{r, warning=FALSE, message=FALSE}
+# load package to get data from API link
+library(httr)
+library(jsonlite)
+library(dplyr)
+```
+
+#### franchise function
+```{r}
+# Construct a function for API data acquisition
+
+franchise <- function (id,name){
+  base_url <- "https://records.nhl.com/site/api/franchise"
+  get_url <- GET (base_url)
+  record_txt <- content (get_url, "text", encoding = "UTF-8")
+  record_json <- fromJSON(record_txt, flatten=TRUE)
+  Data_df <- data.frame( record_json)
+  if (id==0 & name == "full") {
+   return(Data_df) 
+  }
+   else{record <- filter(Data_df, data.id==id | data.fullName==name)
+   return(record)
+   }
+}
+record_franchise1 <- franchise (2, "Montreal Wanderers")
+record_franchise1
+record_franchise2 <- franchise (0,"full")
+record_franchise2
+```
+```{r}
+total <- function (id, name){
+  base_url <- "https://records.nhl.com/site/api"
+  full_url <- paste0 (base_url, "/franchise-team-totals")
+  get_url <- GET (full_url)
+  record_txt <- content (get_url, "text", encoding = "UTF-8")
+  record_json <- fromJSON(record_txt, flatten=TRUE)
+  Data_df <- data.frame( record_json)
+   if (id==0 & name == "full") {
+   return(Data_df) 
+  }
+   else{record <- filter(Data_df, data.franchiseId==id | data.teamName==name )
+   }
+  
+  return(record)
+  }
+record_total1 <- total (2, "Montreal Wanderers")
+record_total1
+record_total2 <- total (0, "full")
+record_total2
+```
+
+#### season function
+```{r}
+season <- function (id){
+  base_url <- "https://records.nhl.com/site/api/franchise-season-records?cayenneExp=franchiseId"
+  if (id==0 ) {
+   get_url <- GET (base_url) 
+   record_txt <- content (get_url , "text", encoding = "UTF-8")
+   record_json <- fromJSON(record_txt, flatten=TRUE)
+   Data_df <- data.frame(record_json)
+    return( list(base_url,Data_df))
+  }
+    else {
+      full_url  <-  paste0(base_url,"=",id )	
+      get_url <- GET (full_url)
+      record_txt <- content (get_url , "text", encoding = "UTF-8")
+      record_json <- fromJSON(record_txt, flatten=TRUE)
+      Data_df <- data.frame(record_json)
+      return( list(full_url,Data_df))
+    }
+
+ 
+}
+record_season <- season (9)
+record_season       
+record_season <- season (0)
+record_season       
+```
+#### goalie function
+```{r}
+
+goalie<- function (id){
+  base_url <- "https://records.nhl.com/site/api/franchise-goalie-records?cayenneExp=franchiseId"
+   if (id==0 ) {
+  get_url <- GET (base_url) 
+   record_txt <- content (get_url , "text", encoding = "UTF-8")
+   record_json <- fromJSON(record_txt, flatten=TRUE)
+   Data_df <- data.frame(record_json)
+    return( list(base_url,Data_df))
+  }
+    else {
+      full_url  <-  paste0(base_url,"=",id )	
+      get_url <- GET (full_url)
+      record_txt <- content (get_url , "text", encoding = "UTF-8")
+      record_json <- fromJSON(record_txt, flatten=TRUE)
+      Data_df <- data.frame(record_json)
+      return( list(full_url,Data_df))
+    }
+}
+record_goalie1<- goalie (6)
+record_goalie1
+str(record_goalie1)
+record_goalie2 <- goalie (0)
+record_goalie2
+ 
+```
+skater function
+```{r}
+skater <- function (id,...){
+  base_url <- "https://records.nhl.com/site/api/franchise-skater-records?cayenneExp=franchiseId"
+  if (id==0 ) {
+get_url <- GET (base_url) 
+   record_txt <- content (get_url , "text", encoding = "UTF-8")
+   record_json <- fromJSON(record_txt, flatten=TRUE)
+   Data_df <- data.frame(record_json)
+    return( list(base_url,Data_df))
+  }
+    else {
+      full_url  <-  paste0(base_url,"=",id )	
+      get_url <- GET (full_url)
+      record_txt <- content (get_url , "text", encoding = "UTF-8")
+      record_json <- fromJSON(record_txt, flatten=TRUE)
+      Data_df <- data.frame(record_json)
+      return( list(full_url,Data_df))
+    }
+}
+record_skater1 <- skater( 6 )
+record_skater1
+str(record_skater1)
+record_skater2 <- skater( 0 )
+record_skater2
+```
+#### detail function
+```{r}
+detail<- function (id,...){
+  base_url <- "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId"
+  if (id==0 ) {
+get_url <- GET (base_url) 
+   record_txt <- content (get_url , "text", encoding = "UTF-8")
+   record_json <- fromJSON(record_txt, flatten=TRUE)
+   Data_df <- data.frame(record_json)
+    return( list(base_url,Data_df))
+  }
+    else {
+      full_url  <-  paste0(base_url,"=",id )	
+      get_url <- GET (full_url)
+      record_txt <- content (get_url , "text", encoding = "UTF-8")
+      record_json <- fromJSON(record_txt, flatten=TRUE)
+      Data_df <- data.frame(record_json)
+      return( list(full_url,Data_df))
+  }
+}
+record_detail <- detail( 2 )
+record_detail
+record_detail <- detail( 0 )
+record_detail
+```
+
+
+### NHL stats API
+
+```{r}
+stats <- function(id, ... ) {
+  base_url2 <- "https://statsapi.web.nhl.com/api/v1/teams/" 
+  if (is.numeric (id)) {
+    apiurl <- paste0 (base_url2, id, "/?expand=team.stats")
+  }
+  if (!is.numeric (id)) {
+      apiurl<- paste0 (base_url2, "?expand=team.stats")
+    }
+  team <- GET (apiurl)
+  team_txt <- content (team,"text", encoding="UTF-8")
+  stats_json <- fromJSON(team_txt, flatten=TRUE)
+  team_df <- data.frame(stats_json) 
+  return(team_df)
+} 
+   stats_data <- stats (2)
+   stats_data
+   stats_data2 <- stats ("teams")
+   stats_data2
+```
+## wrapper function
+```{r}
+wrapper <- function (modifier, id,name,...) {
+  if (modifier == "franchise") {
+    franchise_Data <- franchise (id,name)
+    franchise_Data
+  }
+    else if (modifier == "totals"){
+     total_Data <- total (id,name)
+     total_Data
+    }
+      else if (modifier == "season") {
+       season_Data <- season(id)
+       season_Data
+      }
+        else if (modifier == "goalie"){
+         goalie_Data <- goalie (id)
+         goalie_Data
+        }
+          else if (modifier == "skater"){
+            skater_Data <- skater (id)
+            skater_Data
+          }
+            else if (modifier == "detail") {
+              detail_Data <-  detail (id)
+              detail_Data
+            }
+              else if (modifier == "stats"){
+                stas_Data <- stats (id)
+                stas_Data
+              }
+}
+result1 <- wrapper ("franchise", 2, "Montreal Wanderers")
+result1
+result2 <- wrapper ("stats", 2)
+result2
+result3 <- wrapper ("skater",0)
+result3
+```
+  
+## Exploratory Data analysis 
+
+```{r}
+goalie_data <- wrapper ("goalie", 6)
+goalie_data <- data.frame(goalie_data) %>% group_by (data.franchiseId, data.franchiseName  )
+skater_data <- wrapper ("skater", 6)
+skater_data <- data.frame (skater_data)
+franchise_data <- wrapper ("franchise", 2, "Montreal Wanderers")
+franchise_data
+total_Data <- wrapper ("totals", 2, "Montreal Wanderers")
+total_Data
+gp_sk_comb <- inner_join(goalie_data, skater_data, by=(c("data.franchiseId","data.franchiseName"))
+
+```
+
+### Data from two endpoints
+### New variables
+### contingency tables
+### Five plots
+#### bar plot
+#### histogram
+#### box plot
+#### scatter plot
