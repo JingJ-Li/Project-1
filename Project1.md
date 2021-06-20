@@ -92,10 +92,10 @@ record_franchise1
 
     ##   data.id data.firstSeasonId      data.fullName data.lastSeasonId
     ## 1       2           19171918 Montreal Wanderers          19171918
-    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName
-    ## 1                    41             MWN           Wanderers
-    ##   data.teamPlaceName total
-    ## 1           Montreal    39
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                    41             MWN           Wanderers           Montreal
+    ##   total
+    ## 1    39
 
 ``` r
 record_franchise2 <- franchise (0,"full")
@@ -109,20 +109,20 @@ head(record_franchise2)
     ## 4       4           19191920     Hamilton Tigers          19241925
     ## 5       5           19171918 Toronto Maple Leafs                NA
     ## 6       6           19241925       Boston Bruins                NA
-    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName
-    ## 1                     8             MTL           Canadiens
-    ## 2                    41             MWN           Wanderers
-    ## 3                    45             SLE              Eagles
-    ## 4                    37             HAM              Tigers
-    ## 5                    10             TOR         Maple Leafs
-    ## 6                     6             BOS              Bruins
-    ##   data.teamPlaceName total
-    ## 1           Montréal    39
-    ## 2           Montreal    39
-    ## 3          St. Louis    39
-    ## 4           Hamilton    39
-    ## 5            Toronto    39
-    ## 6             Boston    39
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                     8             MTL           Canadiens           Montréal
+    ## 2                    41             MWN           Wanderers           Montreal
+    ## 3                    45             SLE              Eagles          St. Louis
+    ## 4                    37             HAM              Tigers           Hamilton
+    ## 5                    10             TOR         Maple Leafs            Toronto
+    ## 6                     6             BOS              Bruins             Boston
+    ##   total
+    ## 1    39
+    ## 2    39
+    ## 3    39
+    ## 4    39
+    ## 5    39
+    ## 6    39
 
 ``` r
 str(record_franchise2)
@@ -171,10 +171,10 @@ record_total1
     ## 1         0.1667           2               3                      NA
     ##   data.roadTies data.roadWins data.shootoutLosses data.shootoutWins
     ## 1             0             0                   0                 0
-    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode
-    ## 1             0          41 Montreal Wanderers         0          MWN
-    ##   data.wins total
-    ## 1         1   105
+    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode data.wins
+    ## 1             0          41 Montreal Wanderers         0          MWN         1
+    ##   total
+    ## 1   105
 
 ``` r
 record_total2 <- total (0, "full")
@@ -223,20 +223,20 @@ head(record_total2)
     ## 4            NA            76                   0                 0
     ## 5           360          1269                  68                79
     ## 6             7           107                   0                 0
-    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode
-    ## 1           196           1  New Jersey Devils       219          NJD
-    ## 2            25           1  New Jersey Devils        NA          NJD
-    ## 3           177           2 New York Islanders       347          NYI
-    ## 4            12           2 New York Islanders        NA          NYI
-    ## 5           408           3   New York Rangers       808          NYR
-    ## 6            44           3   New York Rangers         8          NYR
-    ##   data.wins total
-    ## 1      1394   105
-    ## 2       137   105
-    ## 3      1688   105
-    ## 4       171   105
-    ## 5      2883   105
-    ## 6       244   105
+    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode data.wins
+    ## 1           196           1  New Jersey Devils       219          NJD      1394
+    ## 2            25           1  New Jersey Devils        NA          NJD       137
+    ## 3           177           2 New York Islanders       347          NYI      1688
+    ## 4            12           2 New York Islanders        NA          NYI       171
+    ## 5           408           3   New York Rangers       808          NYR      2883
+    ## 6            44           3   New York Rangers         8          NYR       244
+    ##   total
+    ## 1   105
+    ## 2   105
+    ## 3   105
+    ## 4   105
+    ## 5   105
+    ## 6   105
 
 #### season function
 
@@ -269,26 +269,24 @@ record_season1
     ## 1                             NA                      NA                NA
     ##   data.fewestLossesSeasons data.fewestPoints data.fewestPointsSeasons
     ## 1                       NA                NA                       NA
-    ##   data.fewestTies data.fewestTiesSeasons data.fewestWins
-    ## 1              NA                     NA              NA
-    ##   data.fewestWinsSeasons data.franchiseId   data.franchiseName
-    ## 1                     NA                9 Philadelphia Quakers
-    ##   data.homeLossStreak  data.homeLossStreakDates data.homePointStreak
-    ## 1                   8 Nov 29 1930 - Jan 08 1931                    5
+    ##   data.fewestTies data.fewestTiesSeasons data.fewestWins data.fewestWinsSeasons
+    ## 1              NA                     NA              NA                     NA
+    ##   data.franchiseId   data.franchiseName data.homeLossStreak
+    ## 1                9 Philadelphia Quakers                   8
+    ##    data.homeLossStreakDates data.homePointStreak
+    ## 1 Nov 29 1930 - Jan 08 1931                    5
     ##                              data.homePointStreakDates data.homeWinStreak
     ## 1 Jan 15 1926 - Feb 13 1926, Feb 23 1926 - Mar 15 1926                  5
-    ##                                data.homeWinStreakDates
-    ## 1 Jan 15 1926 - Feb 13 1926, Feb 23 1926 - Mar 15 1926
-    ##   data.homeWinlessStreak data.homeWinlessStreakDates data.lossStreak
-    ## 1                      8   Nov 29 1930 - Jan 08 1931              15
-    ##        data.lossStreakDates data.mostGameGoals
-    ## 1 Nov 29 1930 - Jan 08 1931                 10
-    ##        data.mostGameGoalsDates data.mostGoals data.mostGoalsAgainst
-    ## 1 Nov 19 1929 - TOR 5 @ PIR 10            102                   185
-    ##   data.mostGoalsAgainstSeasons data.mostGoalsSeasons data.mostLosses
-    ## 1                 1929-30 (44)          1929-30 (44)              36
-    ##       data.mostLossesSeasons data.mostPenaltyMinutes
-    ## 1 1929-30 (44), 1930-31 (44)                     503
+    ##                                data.homeWinStreakDates data.homeWinlessStreak
+    ## 1 Jan 15 1926 - Feb 13 1926, Feb 23 1926 - Mar 15 1926                      8
+    ##   data.homeWinlessStreakDates data.lossStreak      data.lossStreakDates
+    ## 1   Nov 29 1930 - Jan 08 1931              15 Nov 29 1930 - Jan 08 1931
+    ##   data.mostGameGoals      data.mostGameGoalsDates data.mostGoals
+    ## 1                 10 Nov 19 1929 - TOR 5 @ PIR 10            102
+    ##   data.mostGoalsAgainst data.mostGoalsAgainstSeasons data.mostGoalsSeasons
+    ## 1                   185                 1929-30 (44)          1929-30 (44)
+    ##   data.mostLosses     data.mostLossesSeasons data.mostPenaltyMinutes
+    ## 1              36 1929-30 (44), 1930-31 (44)                     503
     ##   data.mostPenaltyMinutesSeasons data.mostPoints data.mostPointsSeasons
     ## 1                   1930-31 (44)              46           1927-28 (44)
     ##   data.mostShutouts   data.mostShutoutsSeasons data.mostTies
@@ -297,18 +295,16 @@ record_season1
     ## 1 1927-28 (44), 1928-29 (44)            19 1925-26 (36), 1927-28 (44)
     ##   data.pointStreak     data.pointStreakDates data.roadLossStreak
     ## 1                6 Mar 10 1928 - Mar 24 1928                  12
-    ##                               data.roadLossStreakDates
-    ## 1 Nov 26 1929 - Jan 21 1930, Nov 15 1930 - Jan 22 1931
-    ##   data.roadPointStreak data.roadPointStreakDates data.roadWinStreak
-    ## 1                    6 Jan 24 1928 - Feb 16 1928                  4
-    ##                                data.roadWinStreakDates
-    ## 1 Jan 01 1927 - Jan 20 1927, Jan 31 1928 - Feb 14 1928
-    ##   data.roadWinlessStreak data.roadWinlessStreakDates data.winStreak
-    ## 1                     22   Nov 26 1929 - Mar 13 1930              6
-    ##         data.winStreakDates data.winlessStreak   data.winlessStreakDates
-    ## 1 Mar 10 1928 - Mar 24 1928                 16 Feb 04 1930 - Mar 18 1930
-    ##   total
-    ## 1     1
+    ##                               data.roadLossStreakDates data.roadPointStreak
+    ## 1 Nov 26 1929 - Jan 21 1930, Nov 15 1930 - Jan 22 1931                    6
+    ##   data.roadPointStreakDates data.roadWinStreak
+    ## 1 Jan 24 1928 - Feb 16 1928                  4
+    ##                                data.roadWinStreakDates data.roadWinlessStreak
+    ## 1 Jan 01 1927 - Jan 20 1927, Jan 31 1928 - Feb 14 1928                     22
+    ##   data.roadWinlessStreakDates data.winStreak       data.winStreakDates
+    ## 1   Nov 26 1929 - Mar 13 1930              6 Mar 10 1928 - Mar 24 1928
+    ##   data.winlessStreak   data.winlessStreakDates total
+    ## 1                 16 Feb 04 1930 - Mar 18 1930     1
 
 ``` r
 record_season2 <- season (0)
@@ -343,48 +339,34 @@ head(record_season2)
     ## 4               4           1985-86 (80)              17
     ## 5               4           1995-96 (82)              16
     ## 6               5           1972-73 (78)              14
-    ##                     data.fewestWinsSeasons data.franchiseId
-    ## 1                             1975-76 (80)               23
-    ## 2                             1972-73 (78)               22
-    ## 3 1952-53 (70), 1954-55 (70), 1959-60 (70)               10
-    ## 4                             1969-70 (76)               16
-    ## 5                             1983-84 (80)               17
-    ## 6                             1962-63 (70)                6
-    ##    data.franchiseName data.homeLossStreak
-    ## 1   New Jersey Devils                  10
-    ## 2  New York Islanders                   7
-    ## 3    New York Rangers                   7
-    ## 4 Philadelphia Flyers                   8
-    ## 5 Pittsburgh Penguins                  14
-    ## 6       Boston Bruins                  11
-    ##                               data.homeLossStreakDates
-    ## 1                            Jan 26 2021 - Mar 13 2021
-    ## 2 Nov 13 1999 - Dec 14 1999, Feb 27 2001 - Mar 29 2001
-    ## 3 Oct 20 1976 - Nov 14 1976, Mar 24 1993 - Apr 14 1993
-    ## 4                            Dec 09 2006 - Jan 27 2007
-    ## 5                            Dec 31 2003 - Feb 22 2004
-    ## 6                            Dec 08 1924 - Feb 17 1925
-    ##   data.homePointStreak
-    ## 1                   15
-    ## 2                   23
-    ## 3                   24
-    ## 4                   26
-    ## 5                   20
-    ## 6                   27
-    ##                              data.homePointStreakDates data.homeWinStreak
-    ## 1 Jan 08 1997 - Mar 15 1997, Dec 14 1999 - Feb 17 2000                 11
-    ## 2 Oct 17 1978 - Jan 20 1979, Jan 02 1982 - Apr 03 1982                 14
-    ## 3 Oct 14 1970 - Jan 31 1971, Oct 24 1995 - Feb 15 1996                 14
-    ## 4                            Oct 11 1979 - Feb 03 1980                 20
-    ## 5                            Nov 30 1974 - Feb 22 1975                 13
-    ## 6                            Nov 22 1970 - Mar 20 1971                 20
-    ##     data.homeWinStreakDates data.homeWinlessStreak
-    ## 1 Feb 09 2009 - Mar 20 2009                     14
-    ## 2 Jan 02 1982 - Feb 25 1982                      9
-    ## 3 Dec 19 1939 - Feb 25 1940                     10
-    ## 4 Jan 04 1976 - Apr 03 1976                     13
-    ## 5 Nov 15 2013 - Jan 15 2014                     16
-    ## 6 Dec 03 1929 - Mar 18 1930                     11
+    ##                     data.fewestWinsSeasons data.franchiseId  data.franchiseName
+    ## 1                             1975-76 (80)               23   New Jersey Devils
+    ## 2                             1972-73 (78)               22  New York Islanders
+    ## 3 1952-53 (70), 1954-55 (70), 1959-60 (70)               10    New York Rangers
+    ## 4                             1969-70 (76)               16 Philadelphia Flyers
+    ## 5                             1983-84 (80)               17 Pittsburgh Penguins
+    ## 6                             1962-63 (70)                6       Boston Bruins
+    ##   data.homeLossStreak                             data.homeLossStreakDates
+    ## 1                  10                            Jan 26 2021 - Mar 13 2021
+    ## 2                   7 Nov 13 1999 - Dec 14 1999, Feb 27 2001 - Mar 29 2001
+    ## 3                   7 Oct 20 1976 - Nov 14 1976, Mar 24 1993 - Apr 14 1993
+    ## 4                   8                            Dec 09 2006 - Jan 27 2007
+    ## 5                  14                            Dec 31 2003 - Feb 22 2004
+    ## 6                  11                            Dec 08 1924 - Feb 17 1925
+    ##   data.homePointStreak                            data.homePointStreakDates
+    ## 1                   15 Jan 08 1997 - Mar 15 1997, Dec 14 1999 - Feb 17 2000
+    ## 2                   23 Oct 17 1978 - Jan 20 1979, Jan 02 1982 - Apr 03 1982
+    ## 3                   24 Oct 14 1970 - Jan 31 1971, Oct 24 1995 - Feb 15 1996
+    ## 4                   26                            Oct 11 1979 - Feb 03 1980
+    ## 5                   20                            Nov 30 1974 - Feb 22 1975
+    ## 6                   27                            Nov 22 1970 - Mar 20 1971
+    ##   data.homeWinStreak   data.homeWinStreakDates data.homeWinlessStreak
+    ## 1                 11 Feb 09 2009 - Mar 20 2009                     14
+    ## 2                 14 Jan 02 1982 - Feb 25 1982                      9
+    ## 3                 14 Dec 19 1939 - Feb 25 1940                     10
+    ## 4                 20 Jan 04 1976 - Apr 03 1976                     13
+    ## 5                 13 Nov 15 2013 - Jan 15 2014                     16
+    ## 6                 20 Dec 03 1929 - Mar 18 1930                     11
     ##                            data.homeWinlessStreakDates data.lossStreak
     ## 1 Feb 12 1976 - Mar 30 1976, Feb 04 1979 - Mar 31 1979              14
     ## 2                            Mar 02 1999 - Apr 06 1999              12
@@ -434,34 +416,27 @@ head(record_season2)
     ## 4           1975-76 (80)                13             1974-75 (80)
     ## 5           1992-93 (84)                10             2014-15 (82)
     ## 6           1970-71 (78)                15             1927-28 (44)
-    ##   data.mostTies data.mostTiesSeasons data.mostWins
-    ## 1            21         1977-78 (80)            51
-    ## 2            22         1974-75 (80)            54
-    ## 3            21         1950-51 (70)            53
-    ## 4            24         1969-70 (76)            53
-    ## 5            20         1970-71 (78)            56
-    ## 6            21         1954-55 (70)            57
-    ##         data.mostWinsSeasons data.pointStreak     data.pointStreakDates
-    ## 1               2008-09 (82)               16 Dec 26 1999 - Jan 28 2000
-    ## 2               1981-82 (80)               17 Oct 12 2019 - Nov 23 2019
-    ## 3               2014-15 (82)               19 Nov 23 1939 - Jan 13 1940
-    ## 4 1984-85 (80), 1985-86 (80)               35 Oct 14 1979 - Jan 06 1980
-    ## 5               1992-93 (84)               18 Mar 09 1993 - Apr 14 1993
-    ## 6               1970-71 (78)               23 Dec 22 1940 - Feb 23 1941
-    ##   data.roadLossStreak                             data.roadLossStreakDates
-    ## 1                  12                            Oct 19 1983 - Dec 01 1983
-    ## 2                  15                            Jan 20 1973 - Mar 31 1973
-    ## 3                  10 Oct 30 1943 - Dec 23 1943, Feb 08 1961 - Mar 15 1961
-    ## 4                   8 Oct 25 1972 - Nov 26 1972, Mar 03 1988 - Mar 29 1988
-    ## 5                  18                            Dec 23 1982 - Mar 04 1983
-    ## 6                  14                            Dec 27 1964 - Feb 21 1965
-    ##   data.roadPointStreak
-    ## 1                   10
-    ## 2                    8
-    ## 3                   11
-    ## 4                   16
-    ## 5                    8
-    ## 6                   16
+    ##   data.mostTies data.mostTiesSeasons data.mostWins       data.mostWinsSeasons
+    ## 1            21         1977-78 (80)            51               2008-09 (82)
+    ## 2            22         1974-75 (80)            54               1981-82 (80)
+    ## 3            21         1950-51 (70)            53               2014-15 (82)
+    ## 4            24         1969-70 (76)            53 1984-85 (80), 1985-86 (80)
+    ## 5            20         1970-71 (78)            56               1992-93 (84)
+    ## 6            21         1954-55 (70)            57               1970-71 (78)
+    ##   data.pointStreak     data.pointStreakDates data.roadLossStreak
+    ## 1               16 Dec 26 1999 - Jan 28 2000                  12
+    ## 2               17 Oct 12 2019 - Nov 23 2019                  15
+    ## 3               19 Nov 23 1939 - Jan 13 1940                  10
+    ## 4               35 Oct 14 1979 - Jan 06 1980                   8
+    ## 5               18 Mar 09 1993 - Apr 14 1993                  18
+    ## 6               23 Dec 22 1940 - Feb 23 1941                  14
+    ##                               data.roadLossStreakDates data.roadPointStreak
+    ## 1                            Oct 19 1983 - Dec 01 1983                   10
+    ## 2                            Jan 20 1973 - Mar 31 1973                    8
+    ## 3 Oct 30 1943 - Dec 23 1943, Feb 08 1961 - Mar 15 1961                   11
+    ## 4 Oct 25 1972 - Nov 26 1972, Mar 03 1988 - Mar 29 1988                   16
+    ## 5                            Dec 23 1982 - Mar 04 1983                    8
+    ## 6                            Dec 27 1964 - Feb 21 1965                   16
     ##                                                                                    data.roadPointStreakDates
     ## 1                                                       Feb 27 2001 - Apr 07 2001, Jan 30 2007 - Mar 15 2007
     ## 2 Feb 12 1976 - Mar 14 1976, Nov 12 1978 - Dec 09 1978, Feb 27 1981 - Mar 29 1981, Oct 07 1981 - Nov 11 1981
@@ -490,20 +465,13 @@ head(record_season2)
     ## 4             13                            Oct 19 1985 - Nov 17 1985
     ## 5             17                            Mar 09 1993 - Apr 10 1993
     ## 6             14                            Dec 03 1929 - Jan 09 1930
-    ##   data.winlessStreak                              data.winlessStreakDates
-    ## 1                 27                            Feb 12 1976 - Apr 04 1976
-    ## 2                 15                            Nov 22 1972 - Dec 21 1972
-    ## 3                 21                            Jan 23 1944 - Mar 19 1944
-    ## 4                 12                            Feb 24 1999 - Mar 16 1999
-    ## 5                 18 Jan 02 1983 - Feb 10 1983, Jan 13 2004 - Feb 22 2004
-    ## 6                 20                            Jan 28 1962 - Mar 11 1962
-    ##   total
-    ## 1    39
-    ## 2    39
-    ## 3    39
-    ## 4    39
-    ## 5    39
-    ## 6    39
+    ##   data.winlessStreak                              data.winlessStreakDates total
+    ## 1                 27                            Feb 12 1976 - Apr 04 1976    39
+    ## 2                 15                            Nov 22 1972 - Dec 21 1972    39
+    ## 3                 21                            Jan 23 1944 - Mar 19 1944    39
+    ## 4                 12                            Feb 24 1999 - Mar 16 1999    39
+    ## 5                 18 Jan 02 1983 - Feb 10 1983, Jan 13 2004 - Feb 22 2004    39
+    ## 6                 20                            Jan 28 1962 - Mar 11 1962    39
 
 #### goalie function
 
@@ -527,134 +495,636 @@ goalie<- function (id){
     }
 }
 record_goalie1<- goalie (6)
-head(record_goalie1)
+record_goalie1
 ```
 
-    ##   data.id data.activePlayer data.firstName data.franchiseId
-    ## 1     347             FALSE           Yves                6
-    ## 2     352             FALSE         Daniel                6
-    ## 3     356             FALSE          Craig                6
-    ## 4     374             FALSE            Jon                6
-    ## 5     380             FALSE            Tim                6
-    ## 6     427             FALSE         Gilles                6
-    ##   data.franchiseName data.gameTypeId data.gamesPlayed data.lastName
-    ## 1      Boston Bruins               2                8      Belanger
-    ## 2      Boston Bruins               2                8    Berthiaume
-    ## 3      Boston Bruins               2               35    Billington
-    ## 4      Boston Bruins               2               57         Casey
-    ## 5      Boston Bruins               2                2     Cheveldae
-    ## 6      Boston Bruins               2              277       Gilbert
-    ##   data.losses data.mostGoalsAgainstDates data.mostGoalsAgainstOneGame
-    ## 1           0                 1979-10-23                            5
-    ## 2           4     1992-03-08, 1992-01-25                            4
-    ## 3          14                 1995-10-14                            6
-    ## 4          15                 1993-11-24                            7
-    ## 5           1                 1997-01-13                            4
-    ## 6          73     1976-03-09, 1974-10-10                            9
-    ##   data.mostSavesDates data.mostSavesOneGame data.mostShotsAgainstDates
-    ## 1          1979-11-02                    24                 1979-11-02
-    ## 2          1992-03-07                    26     1992-03-07, 1992-01-23
-    ## 3          1996-01-13                    34                 1996-01-13
-    ## 4          1994-03-14                    31                 1994-03-14
-    ## 5          1997-01-13                    15                 1997-01-13
-    ## 6          1975-02-01                    41                 1975-02-01
-    ##   data.mostShotsAgainstOneGame data.mostShutoutsOneSeason
-    ## 1                           27                          0
-    ## 2                           28                          0
-    ## 3                           36                          1
-    ## 4                           36                          4
-    ## 5                           19                          0
-    ## 6                           44                          6
-    ##   data.mostShutoutsSeasonIds data.mostWinsOneSeason data.mostWinsSeasonIds
-    ## 1                   19791980                      2               19791980
-    ## 2                   19911992                      1               19911992
-    ## 3                   19951996                     10               19951996
-    ## 4                   19931994                     30               19931994
-    ## 5                   19961997                      0               19961997
-    ## 6                   19731974                     34               19731974
-    ##   data.overtimeLosses data.playerId data.positionCode
-    ## 1                  NA       8445403                 G
-    ## 2                  NA       8445462                 G
-    ## 3                  NA       8445470                 G
-    ## 4                  NA       8446011                 G
-    ## 5                  NA       8446082                 G
-    ## 6                  NA       8447170                 G
-    ##   data.rookieGamesPlayed data.rookieShutouts data.rookieWins data.seasons
-    ## 1                     NA                  NA              NA            1
-    ## 2                     NA                  NA              NA            1
-    ## 3                     NA                  NA              NA            2
-    ## 4                     NA                  NA              NA            1
-    ## 5                     NA                  NA              NA            1
-    ## 6                     NA                  NA              NA            7
-    ##   data.shutouts data.ties data.wins total
-    ## 1             0         3         2    51
-    ## 2             0         2         1    51
-    ## 3             1         3        15    51
-    ## 4             4         9        30    51
-    ## 5             0         0         0    51
-    ## 6            16        39       155    51
+    ##    data.id data.activePlayer data.firstName data.franchiseId data.franchiseName
+    ## 1      347             FALSE           Yves                6      Boston Bruins
+    ## 2      352             FALSE         Daniel                6      Boston Bruins
+    ## 3      356             FALSE          Craig                6      Boston Bruins
+    ## 4      374             FALSE            Jon                6      Boston Bruins
+    ## 5      380             FALSE            Tim                6      Boston Bruins
+    ## 6      427             FALSE         Gilles                6      Boston Bruins
+    ## 7      432             FALSE            Ron                6      Boston Bruins
+    ## 8      438             FALSE           Jeff                6      Boston Bruins
+    ## 9      479             FALSE           Doug                6      Boston Bruins
+    ## 10     487             FALSE         Rejean                6      Boston Bruins
+    ## 11     528             FALSE           Andy                6      Boston Bruins
+    ## 12     542             FALSE           Paul                6      Boston Bruins
+    ## 13    1185             FALSE          Frank                6      Boston Bruins
+    ## 14     555             FALSE             Ed                6      Boston Bruins
+    ## 15     247             FALSE          Gerry                6      Boston Bruins
+    ## 16     566             FALSE           Wilf                6      Boston Bruins
+    ## 17     581             FALSE            Jim                6      Boston Bruins
+    ## 18     586             FALSE           Bert                6      Boston Bruins
+    ## 19     589             FALSE           Jack                6      Boston Bruins
+    ## 20     592             FALSE          Benny                6      Boston Bruins
+    ## 21     601             FALSE            Jim                6      Boston Bruins
+    ## 22     300             FALSE          Eddie                6      Boston Bruins
+    ## 23     617             FALSE         Howard                6      Boston Bruins
+    ## 24     619             FALSE          Harry                6      Boston Bruins
+    ## 25    1217             FALSE           Jack                6      Boston Bruins
+    ## 26     628             FALSE        Jacques                6      Boston Bruins
+    ## 27     639             FALSE          Terry                6      Boston Bruins
+    ## 28     290             FALSE           Tiny                6      Boston Bruins
+    ## 29    1213             FALSE            Hal                6      Boston Bruins
+    ## 30     660             FALSE           Pete                6      Boston Bruins
+    ## 31     682             FALSE        Vincent                6      Boston Bruins
+    ## 32     684             FALSE            Pat                6      Boston Bruins
+    ## 33     688             FALSE        Roberto                6      Boston Bruins
+    ## 34     738             FALSE          Rogie                6      Boston Bruins
+    ## 35     760             FALSE            Kay                6      Boston Bruins
+    ## 36     770             FALSE           John                6      Boston Bruins
+    ## 37     774             FALSE          Byron                6      Boston Bruins
+    ## 38     796             FALSE          Felix                6      Boston Bruins
+    ## 39     825             FALSE          Steve                6      Boston Bruins
+    ## 40     838             FALSE            Jim                6      Boston Bruins
+    ## 41     841             FALSE          Manny                6      Boston Bruins
+    ## 42     890             FALSE          Marty                6      Boston Bruins
+    ## 43     894             FALSE            Tim                6      Boston Bruins
+    ## 44     939             FALSE          Peter                6      Boston Bruins
+    ## 45     960             FALSE       Philippe                6      Boston Bruins
+    ## 46     976             FALSE           Alex                6      Boston Bruins
+    ## 47    1038             FALSE           Joey                6      Boston Bruins
+    ## 48    1258              TRUE       Jaroslav                6      Boston Bruins
+    ## 49     321              TRUE         Tuukka                6      Boston Bruins
+    ## 50    1094             FALSE           Chad                6      Boston Bruins
+    ## 51    1147             FALSE          Jonas                6      Boston Bruins
+    ##    data.gameTypeId data.gamesPlayed data.lastName data.losses
+    ## 1                2                8      Belanger           0
+    ## 2                2                8    Berthiaume           4
+    ## 3                2               35    Billington          14
+    ## 4                2               57         Casey          15
+    ## 5                2                2     Cheveldae           1
+    ## 6                2              277       Gilbert          73
+    ## 7                2               40       Grahame           6
+    ## 8                2               18       Hackett           9
+    ## 9                2              154         Keans          46
+    ## 10               2              183       Lemelin          62
+    ## 11               2              261          Moog          75
+    ## 12               2               43      Bibeault          22
+    ## 13               2              444       Brimsek         144
+    ## 14               2                4      Chadwick           3
+    ## 15               2              416      Cheevers         103
+    ## 16               2                2          Cude           1
+    ## 17               2                1        Franks           1
+    ## 18               2               41      Gardiner          19
+    ## 19               2              141      Gelineau          62
+    ## 20               2                1         Grant           1
+    ## 21               2              237         Henry          99
+    ## 22               2              444      Johnston         192
+    ## 23               2                2      Lockhart           2
+    ## 24               2               77        Lumley          33
+    ## 25               2               23        Norris          11
+    ## 26               2                8        Plante           1
+    ## 27               2              102       Sawchuk          43
+    ## 28               2              468      Thompson         153
+    ## 29               2               67       Winkler          22
+    ## 30               2              171       Peeters          58
+    ## 31               2               29      Riendeau          12
+    ## 32               2               49        Riggin          16
+    ## 33               2                1        Romano           1
+    ## 34               2               91        Vachon          30
+    ## 35               2                5      Whitmore           2
+    ## 36               2               41          Blue          16
+    ## 37               2              283         Dafoe         104
+    ## 38               2               28        Potvin           8
+    ## 39               2               36       Shields          13
+    ## 40               2               29         Carey          15
+    ## 41               2               32     Fernandez          10
+    ## 42               2                5         Turco           2
+    ## 43               2              378        Thomas         121
+    ## 44               2               25        Skudra          12
+    ## 45               2                2         Sauve           0
+    ## 46               2               23          Auld           7
+    ## 47               2                7     MacDonald           2
+    ## 48               2               90         Halak          23
+    ## 49               2              560          Rask         163
+    ## 50               2               27       Johnson           4
+    ## 51               2               24    Gustavsson           9
+    ##                                    data.mostGoalsAgainstDates
+    ## 1                                                  1979-10-23
+    ## 2                                      1992-03-08, 1992-01-25
+    ## 3                                                  1995-10-14
+    ## 4                                                  1993-11-24
+    ## 5                                                  1997-01-13
+    ## 6                                      1976-03-09, 1974-10-10
+    ## 7                                                  1978-04-01
+    ## 8                          2003-03-03, 2003-02-14, 2003-02-08
+    ## 9                                                  1985-03-18
+    ## 10                                                 1990-10-19
+    ## 11 1992-11-11, 1991-03-02, 1989-12-30, 1989-12-09, 1989-03-09
+    ## 12                                                 1945-01-27
+    ## 13                                                 1948-12-29
+    ## 14                                                 1961-10-22
+    ## 15 1977-02-12, 1970-01-24, 1966-12-04, 1965-12-15, 1965-12-11
+    ## 16                                                 1932-02-06
+    ## 17                                                 1944-01-29
+    ## 18                                                 1943-11-21
+    ## 19                                                 1949-10-30
+    ## 20                                                 1944-03-18
+    ## 21                                     1953-03-02, 1952-12-11
+    ## 22                                                 1967-03-15
+    ## 23                                                 1925-01-31
+    ## 24                                                 1959-11-14
+    ## 25                                                 1965-03-18
+    ## 26                                                 1973-03-07
+    ## 27                                     1956-02-12, 1955-12-18
+    ## 28                                     1934-02-24, 1934-01-04
+    ## 29                                                 1928-03-24
+    ## 30 1985-11-05, 1985-03-30, 1985-02-23, 1984-02-15, 1984-01-17
+    ## 31                                                 1994-03-08
+    ## 32             1986-03-25, 1985-12-31, 1985-12-05, 1985-11-18
+    ## 33                                                 1987-02-25
+    ## 34             1982-01-17, 1981-10-08, 1981-02-21, 1981-01-02
+    ## 35                                                 2000-11-04
+    ## 36                                                 1993-03-20
+    ## 37                                                 2002-01-23
+    ## 38                                                 2003-12-04
+    ## 39                                                 2003-03-09
+    ## 40                                                 1997-03-27
+    ## 41                         2009-04-11, 2007-10-22, 2007-10-12
+    ## 42                                                 2012-04-03
+    ## 43                                                 2007-01-04
+    ## 44                                                 2001-02-21
+    ## 45                                     2007-01-04, 2006-11-24
+    ## 46                                                 2008-01-22
+    ## 47                                                 2007-03-17
+    ## 48                                                 2021-02-25
+    ## 49                                                 2014-12-04
+    ## 50                                                 2014-02-26
+    ## 51                                                 2016-02-22
+    ##    data.mostGoalsAgainstOneGame                data.mostSavesDates
+    ## 1                             5                         1979-11-02
+    ## 2                             4                         1992-03-07
+    ## 3                             6                         1996-01-13
+    ## 4                             7                         1994-03-14
+    ## 5                             4                         1997-01-13
+    ## 6                             9                         1975-02-01
+    ## 7                             7                         1978-03-28
+    ## 8                             5                         2003-02-27
+    ## 9                             8             1987-10-15, 1983-10-20
+    ## 10                            8                         1991-12-29
+    ## 11                            7                         1989-03-05
+    ## 12                           11                               <NA>
+    ## 13                           10                               <NA>
+    ## 14                            9                         1961-10-21
+    ## 15                            8                         1969-02-06
+    ## 16                            6                               <NA>
+    ## 17                            6                               <NA>
+    ## 18                           13                               <NA>
+    ## 19                           10                               <NA>
+    ## 20                           10                               <NA>
+    ## 21                           10                               <NA>
+    ## 22                           11                         1965-01-03
+    ## 23                            8                               <NA>
+    ## 24                            8                         1958-03-22
+    ## 25                           10                         1965-03-18
+    ## 26                            5                         1973-03-15
+    ## 27                            7             1956-10-30, 1955-11-12
+    ## 28                            9                               <NA>
+    ## 29                            7                               <NA>
+    ## 30                            7                         1984-10-21
+    ## 31                            7                         1995-03-05
+    ## 32                            6                         1985-12-12
+    ## 33                            6                         1987-02-25
+    ## 34                            7                         1981-03-07
+    ## 35                            6                         2000-10-29
+    ## 36                            7                         1993-11-26
+    ## 37                            8                         1999-03-12
+    ## 38                            6                         2003-10-30
+    ## 39                            8                         2003-02-25
+    ## 40                            6                         1997-04-13
+    ## 41                            6                         2009-03-28
+    ## 42                            5                         2012-03-25
+    ## 43                            8                         2007-03-01
+    ## 44                            6                         2000-11-22
+    ## 45                            2                         2006-11-24
+    ## 46                            4                         2007-12-10
+    ## 47                            4                         2007-03-31
+    ## 48                            7 2019-12-31, 2019-11-16, 2018-10-30
+    ## 49                            7                         2014-03-30
+    ## 50                            5                         2013-12-12
+    ## 51                            5                         2016-03-08
+    ##    data.mostSavesOneGame
+    ## 1                     24
+    ## 2                     26
+    ## 3                     34
+    ## 4                     31
+    ## 5                     15
+    ## 6                     41
+    ## 7                     27
+    ## 8                     43
+    ## 9                     37
+    ## 10                    39
+    ## 11                    41
+    ## 12                    NA
+    ## 13                    NA
+    ## 14                    37
+    ## 15                    45
+    ## 16                    NA
+    ## 17                    NA
+    ## 18                    NA
+    ## 19                    NA
+    ## 20                    NA
+    ## 21                    NA
+    ## 22                    48
+    ## 23                    NA
+    ## 24                    43
+    ## 25                    47
+    ## 26                    33
+    ## 27                    45
+    ## 28                    NA
+    ## 29                    NA
+    ## 30                    39
+    ## 31                    37
+    ## 32                    41
+    ## 33                    28
+    ## 34                    33
+    ## 35                    29
+    ## 36                    40
+    ## 37                    40
+    ## 38                    37
+    ## 39                    39
+    ## 40                    40
+    ## 41                    33
+    ## 42                    25
+    ## 43                    51
+    ## 44                    42
+    ## 45                    13
+    ## 46                    44
+    ## 47                    37
+    ## 48                    42
+    ## 49                    49
+    ## 50                    39
+    ## 51                    42
+    ##                                    data.mostShotsAgainstDates
+    ## 1                                                  1979-11-02
+    ## 2                                      1992-03-07, 1992-01-23
+    ## 3                                                  1996-01-13
+    ## 4                                                  1994-03-14
+    ## 5                                                  1997-01-13
+    ## 6                                                  1975-02-01
+    ## 7                                      1978-04-01, 1978-03-28
+    ## 8                                                  2003-02-27
+    ## 9                          1987-11-09, 1985-01-27, 1983-10-20
+    ## 10                                                 1991-12-29
+    ## 11                                                 1991-11-05
+    ## 12                                                       <NA>
+    ## 13                                                       <NA>
+    ## 14                                                 1961-10-21
+    ## 15                                                 1969-02-06
+    ## 16                                                       <NA>
+    ## 17                                                       <NA>
+    ## 18                                                       <NA>
+    ## 19                                                       <NA>
+    ## 20                                                       <NA>
+    ## 21                                                       <NA>
+    ## 22                                                 1965-01-03
+    ## 23                                                       <NA>
+    ## 24                                                 1958-03-22
+    ## 25                                                 1965-03-18
+    ## 26                                                 1973-03-15
+    ## 27                                                 1956-10-30
+    ## 28                                                       <NA>
+    ## 29                                                       <NA>
+    ## 30                                                 1985-11-05
+    ## 31                                                 1995-03-05
+    ## 32                                                 1985-12-12
+    ## 33                                                 1987-02-25
+    ## 34                                     1981-10-29, 1981-02-21
+    ## 35                                                 2000-10-29
+    ## 36                                                 1993-11-26
+    ## 37                                     1999-03-12, 1998-11-19
+    ## 38                                                 2003-10-30
+    ## 39                                                 2003-02-25
+    ## 40                                                 1997-04-13
+    ## 41                                                 2009-03-28
+    ## 42                                     2012-04-03, 2012-03-25
+    ## 43                                                 2007-03-01
+    ## 44                                                 2000-11-22
+    ## 45                                                 2006-11-24
+    ## 46                                                 2007-12-10
+    ## 47                                                 2007-03-31
+    ## 48 2019-12-31, 2019-11-16, 2019-11-04, 2018-12-04, 2018-10-30
+    ## 49                                                 2014-03-30
+    ## 50                                                 2013-12-12
+    ## 51                                                 2016-03-08
+    ##    data.mostShotsAgainstOneGame data.mostShutoutsOneSeason
+    ## 1                            27                          0
+    ## 2                            28                          0
+    ## 3                            36                          1
+    ## 4                            36                          4
+    ## 5                            19                          0
+    ## 6                            44                          6
+    ## 7                            31                          3
+    ## 8                            47                          1
+    ## 9                            40                          2
+    ## 10                           42                          3
+    ## 11                           44                          4
+    ## 12                           NA                          2
+    ## 13                           NA                         10
+    ## 14                           43                          0
+    ## 15                           48                          4
+    ## 16                           NA                          1
+    ## 17                           NA                          0
+    ## 18                           NA                          1
+    ## 19                           NA                          4
+    ## 20                           NA                          0
+    ## 21                           NA                          8
+    ## 22                           56                          6
+    ## 23                           NA                          0
+    ## 24                           48                          3
+    ## 25                           57                          1
+    ## 26                           34                          2
+    ## 27                           49                          9
+    ## 28                           NA                         12
+    ## 29                           NA                         15
+    ## 30                           44                          8
+    ## 31                           39                          1
+    ## 32                           42                          1
+    ## 33                           34                          0
+    ## 34                           37                          1
+    ## 35                           33                          0
+    ## 36                           42                          1
+    ## 37                           44                         10
+    ## 38                           38                          4
+    ## 39                           44                          0
+    ## 40                           43                          2
+    ## 41                           38                          1
+    ## 42                           27                          0
+    ## 43                           55                          9
+    ## 44                           46                          0
+    ## 45                           15                          0
+    ## 46                           45                          2
+    ## 47                           40                          0
+    ## 48                           44                          5
+    ## 49                           52                          8
+    ## 50                           41                          2
+    ## 51                           42                          1
+    ##    data.mostShutoutsSeasonIds data.mostWinsOneSeason data.mostWinsSeasonIds
+    ## 1                    19791980                      2               19791980
+    ## 2                    19911992                      1               19911992
+    ## 3                    19951996                     10               19951996
+    ## 4                    19931994                     30               19931994
+    ## 5                    19961997                      0               19961997
+    ## 6                    19731974                     34               19731974
+    ## 7                    19771978                     26               19771978
+    ## 8                    20022003                      8               20022003
+    ## 9                    19831984                     19               19831984
+    ## 10                   19871988                     24               19871988
+    ## 11                   19901991                     37               19921993
+    ## 12                   19451946                      8               19451946
+    ## 13                   19381939                     33               19381939
+    ## 14                   19611962                      0               19611962
+    ## 15         19691970, 19791980                     30               19761977
+    ## 16                   19311932                      1               19311932
+    ## 17                   19431944                      0               19431944
+    ## 18                   19431944                     17               19431944
+    ## 19                   19501951                     22     19491950, 19501951
+    ## 20                   19431944                      0               19431944
+    ## 21         19521953, 19531954                     32               19531954
+    ## 22                   19631964                     30               19701971
+    ## 23                   19241925                      0               19241925
+    ## 24                   19571958                     16               19591960
+    ## 25                   19641965                     10               19641965
+    ## 26                   19721973                      7               19721973
+    ## 27                   19551956                     22               19551956
+    ## 28                   19281929                     38               19291930
+    ## 29                   19271928                     20               19271928
+    ## 30                   19821983                     40               19821983
+    ## 31                   19931994                      7               19931994
+    ## 32                   19851986                     17               19851986
+    ## 33                   19861987                      0               19861987
+    ## 34         19801981, 19811982                     25               19801981
+    ## 35                   20002001                      1               20002001
+    ## 36                   19921993                      9               19921993
+    ## 37                   19981999                     35               20012002
+    ## 38                   20032004                     12               20032004
+    ## 39                   20022003                     12               20022003
+    ## 40                   19971998                      5               19961997
+    ## 41         20072008, 20082009                     16               20082009
+    ## 42                   20112012                      2               20112012
+    ## 43                   20102011                     36               20082009
+    ## 44                   20002001                      6               20002001
+    ## 45                   20062007                      0               20062007
+    ## 46                   20072008                      9               20072008
+    ## 47                   20062007                      2               20062007
+    ## 48                   20182019                     22               20182019
+    ## 49                   20162017                     37               20162017
+    ## 50                   20132014                     17               20132014
+    ## 51                   20152016                     11               20152016
+    ##    data.overtimeLosses data.playerId data.positionCode data.rookieGamesPlayed
+    ## 1                   NA       8445403                 G                     NA
+    ## 2                   NA       8445462                 G                     NA
+    ## 3                   NA       8445470                 G                     NA
+    ## 4                   NA       8446011                 G                     NA
+    ## 5                   NA       8446082                 G                     NA
+    ## 6                   NA       8447170                 G                     NA
+    ## 7                   NA       8447344                 G                     NA
+    ## 8                   NA       8447449                 G                     NA
+    ## 9                   NA       8448410                 G                     NA
+    ## 10                  NA       8448759                 G                     NA
+    ## 11                  NA       8449681                 G                     NA
+    ## 12                  NA       8449823                 G                     NA
+    ## 13                  NA       8449836                 G                     43
+    ## 14                  NA       8449851                 G                     NA
+    ## 15                  NA       8449853                 G                     22
+    ## 16                  NA       8449861                 G                     NA
+    ## 17                  NA       8449923                 G                     NA
+    ## 18                  NA       8449960                 G                     NA
+    ## 19                  NA       8449977                 G                     67
+    ## 20                  NA       8449983                 G                     NA
+    ## 21                  NA       8449993                 G                     NA
+    ## 22                  NA       8450005                 G                     50
+    ## 23                  NA       8450017                 G                     NA
+    ## 24                  NA       8450019                 G                     NA
+    ## 25                  NA       8450054                 G                     23
+    ## 26                  NA       8450066                 G                     NA
+    ## 27                  NA       8450111                 G                     NA
+    ## 28                  NA       8450127                 G                     44
+    ## 29                  NA       8450150                 G                     23
+    ## 30                  NA       8450343                 G                     NA
+    ## 31                  NA       8450834                 G                     NA
+    ## 32                  NA       8450835                 G                     NA
+    ## 33                  NA       8450993                 G                     NA
+    ## 34                  NA       8452122                 G                     NA
+    ## 35                  NA       8452440                 G                     NA
+    ## 36                  NA       8455633                 G                     NA
+    ## 37                  NA       8455994                 G                     NA
+    ## 38                  NA       8457714                 G                     NA
+    ## 39                  NA       8458615                 G                     NA
+    ## 40                  NA       8458968                 G                     NA
+    ## 41                   3       8458988                 G                     NA
+    ## 42                   0       8460612                 G                     NA
+    ## 43                  45       8460703                 G                     NA
+    ## 44                  NA       8464715                 G                     NA
+    ## 45                   0       8467364                 G                     NA
+    ## 46                   5       8467913                 G                     NA
+    ## 47                   1       8469732                 G                     NA
+    ## 48                  14       8470860                 G                     NA
+    ## 49                  66       8471695                 G                     45
+    ## 50                   3       8473434                 G                     NA
+    ## 51                   1       8475361                 G                     NA
+    ##    data.rookieShutouts data.rookieWins data.seasons data.shutouts data.ties
+    ## 1                   NA              NA            1             0         3
+    ## 2                   NA              NA            1             0         2
+    ## 3                   NA              NA            2             1         3
+    ## 4                   NA              NA            1             4         9
+    ## 5                   NA              NA            1             0         0
+    ## 6                   NA              NA            7            16        39
+    ## 7                   NA              NA            1             3         7
+    ## 8                   NA              NA            1             1         0
+    ## 9                   NA              NA            5             4        13
+    ## 10                  NA              NA            6             6        17
+    ## 11                  NA              NA            6            13        36
+    ## 12                  NA              NA            2             2         6
+    ## 13                  10              33            9            35        70
+    ## 14                  NA              NA            1             0         1
+    ## 15                   1               5           12            26        76
+    ## 16                  NA              NA            1             1         0
+    ## 17                  NA              NA            1             0         0
+    ## 18                  NA              NA            1             1         5
+    ## 19                   3              22            3             7        33
+    ## 20                  NA              NA            1             0         0
+    ## 21                  NA              NA            4            24        44
+    ## 22                   1              11           11            27        54
+    ## 23                  NA              NA            1             0         0
+    ## 24                  NA              NA            3             6         9
+    ## 25                   1              10            1             1         2
+    ## 26                  NA              NA            1             2         0
+    ## 27                  NA              NA            2            11        19
+    ## 28                  12              26           11            74        63
+    ## 29                   4              12            2            19        13
+    ## 30                  NA              NA            4             9        16
+    ## 31                  NA              NA            2             1         2
+    ## 32                  NA              NA            2             1         9
+    ## 33                  NA              NA            1             0         0
+    ## 34                  NA              NA            2             2        12
+    ## 35                  NA              NA            1             0         0
+    ## 36                  NA              NA            2             1         7
+    ## 37                  NA              NA            5            25        40
+    ## 38                  NA              NA            1             4         6
+    ## 39                  NA              NA            1             0         9
+    ## 40                  NA              NA            2             2         1
+    ## 41                  NA              NA            2             2        NA
+    ## 42                  NA              NA            1             0        NA
+    ## 43                  NA              NA            8            31         0
+    ## 44                  NA              NA            1             0         1
+    ## 45                  NA              NA            1             0        NA
+    ## 46                  NA              NA            1             2        NA
+    ## 47                  NA              NA            1             0        NA
+    ## 48                  NA              NA            3            10         0
+    ## 49                   5              22           14            52         0
+    ## 50                  NA              NA            1             2        NA
+    ## 51                  NA              NA            1             1        NA
+    ##    data.wins total
+    ## 1          2    51
+    ## 2          1    51
+    ## 3         15    51
+    ## 4         30    51
+    ## 5          0    51
+    ## 6        155    51
+    ## 7         26    51
+    ## 8          8    51
+    ## 9         83    51
+    ## 10        92    51
+    ## 11       136    51
+    ## 12        14    51
+    ## 13       230    51
+    ## 14         0    51
+    ## 15       226    51
+    ## 16         1    51
+    ## 17         0    51
+    ## 18        17    51
+    ## 19        46    51
+    ## 20         0    51
+    ## 21        93    51
+    ## 22       182    51
+    ## 23         0    51
+    ## 24        35    51
+    ## 25        10    51
+    ## 26         7    51
+    ## 27        40    51
+    ## 28       252    51
+    ## 29        32    51
+    ## 30        91    51
+    ## 31        10    51
+    ## 32        20    51
+    ## 33         0    51
+    ## 34        44    51
+    ## 35         1    51
+    ## 36        14    51
+    ## 37       132    51
+    ## 38        12    51
+    ## 39        12    51
+    ## 40         8    51
+    ## 41        18    51
+    ## 42         2    51
+    ## 43       196    51
+    ## 44         6    51
+    ## 45         0    51
+    ## 46         9    51
+    ## 47         2    51
+    ## 48        49    51
+    ## 49       306    51
+    ## 50        17    51
+    ## 51        11    51
 
 ``` r
 record_goalie2<- goalie (0)
 head(data.frame(record_goalie2))
 ```
 
-    ##   data.id data.activePlayer data.firstName data.franchiseId
-    ## 1     235             FALSE            Don               15
-    ## 2     236             FALSE            Bob               28
-    ## 3     237             FALSE           Tony               11
-    ## 4     238             FALSE          Grant               25
-    ## 5     239             FALSE            Ron               16
-    ## 6     240             FALSE         Curtis               18
-    ##    data.franchiseName data.gameTypeId data.gamesPlayed data.lastName
-    ## 1        Dallas Stars               2              315       Beaupre
-    ## 2     Arizona Coyotes               2              281       Essensa
-    ## 3  Chicago Blackhawks               2              873      Esposito
-    ## 4     Edmonton Oilers               2              423          Fuhr
-    ## 5 Philadelphia Flyers               2              489       Hextall
-    ## 6     St. Louis Blues               2              280        Joseph
-    ##   data.losses data.mostGoalsAgainstDates data.mostGoalsAgainstOneGame
-    ## 1         125                 1983-10-07                           10
-    ## 2         114     1992-12-11, 1992-10-12                            8
-    ## 3         302     1983-10-15, 1980-11-26                           10
-    ## 4         117     1984-02-05, 1982-10-12                            9
-    ## 5         172                 1987-04-05                            9
-    ## 6          96     1992-11-25, 1990-02-20                            8
-    ##   data.mostSavesDates data.mostSavesOneGame data.mostShotsAgainstDates
-    ## 1          1987-03-15                    52                 1986-03-21
-    ## 2          1989-12-29                    49                 1989-12-29
-    ## 3          1977-02-26                    50                 1976-12-12
-    ## 4          1986-03-12                    49                 1986-03-12
-    ## 5          1990-12-23                    45                 1988-10-13
-    ## 6          1992-03-02                    51                 1992-03-02
-    ##   data.mostShotsAgainstOneGame data.mostShutoutsOneSeason
-    ## 1                           55                          1
-    ## 2                           50                          5
-    ## 3                           53                         15
-    ## 4                           54                          4
-    ## 5                           50                          5
-    ## 6                           54                          2
-    ##     data.mostShutoutsSeasonIds data.mostWinsOneSeason
-    ## 1 19841985, 19851986, 19861987                     25
-    ## 2                     19911992                     33
-    ## 3                     19691970                     38
-    ## 4                     19871988                     40
-    ## 5                     19961997                     37
-    ## 6                     19911992                     36
-    ##   data.mostWinsSeasonIds data.overtimeLosses data.playerId
-    ## 1               19851986                  NA       8445381
-    ## 2               19921993                  NA       8446719
-    ## 3               19691970                  NA       8446720
-    ## 4               19871988                  NA       8446991
-    ## 5               19861987                  NA       8447775
-    ## 6               19931994                  NA       8448382
-    ##   data.positionCode data.rookieGamesPlayed data.rookieShutouts
-    ## 1                 G                     44                   0
-    ## 2                 G                     36                   1
-    ## 3                 G                     63                  15
-    ## 4                 G                     48                   0
-    ## 5                 G                     66                   1
-    ## 6                 G                     30                   0
+    ##   data.id data.activePlayer data.firstName data.franchiseId  data.franchiseName
+    ## 1     235             FALSE            Don               15        Dallas Stars
+    ## 2     236             FALSE            Bob               28     Arizona Coyotes
+    ## 3     237             FALSE           Tony               11  Chicago Blackhawks
+    ## 4     238             FALSE          Grant               25     Edmonton Oilers
+    ## 5     239             FALSE            Ron               16 Philadelphia Flyers
+    ## 6     240             FALSE         Curtis               18     St. Louis Blues
+    ##   data.gameTypeId data.gamesPlayed data.lastName data.losses
+    ## 1               2              315       Beaupre         125
+    ## 2               2              281       Essensa         114
+    ## 3               2              873      Esposito         302
+    ## 4               2              423          Fuhr         117
+    ## 5               2              489       Hextall         172
+    ## 6               2              280        Joseph          96
+    ##   data.mostGoalsAgainstDates data.mostGoalsAgainstOneGame data.mostSavesDates
+    ## 1                 1983-10-07                           10          1987-03-15
+    ## 2     1992-12-11, 1992-10-12                            8          1989-12-29
+    ## 3     1983-10-15, 1980-11-26                           10          1977-02-26
+    ## 4     1984-02-05, 1982-10-12                            9          1986-03-12
+    ## 5                 1987-04-05                            9          1990-12-23
+    ## 6     1992-11-25, 1990-02-20                            8          1992-03-02
+    ##   data.mostSavesOneGame data.mostShotsAgainstDates data.mostShotsAgainstOneGame
+    ## 1                    52                 1986-03-21                           55
+    ## 2                    49                 1989-12-29                           50
+    ## 3                    50                 1976-12-12                           53
+    ## 4                    49                 1986-03-12                           54
+    ## 5                    45                 1988-10-13                           50
+    ## 6                    51                 1992-03-02                           54
+    ##   data.mostShutoutsOneSeason   data.mostShutoutsSeasonIds
+    ## 1                          1 19841985, 19851986, 19861987
+    ## 2                          5                     19911992
+    ## 3                         15                     19691970
+    ## 4                          4                     19871988
+    ## 5                          5                     19961997
+    ## 6                          2                     19911992
+    ##   data.mostWinsOneSeason data.mostWinsSeasonIds data.overtimeLosses
+    ## 1                     25               19851986                  NA
+    ## 2                     33               19921993                  NA
+    ## 3                     38               19691970                  NA
+    ## 4                     40               19871988                  NA
+    ## 5                     37               19861987                  NA
+    ## 6                     36               19931994                  NA
+    ##   data.playerId data.positionCode data.rookieGamesPlayed data.rookieShutouts
+    ## 1       8445381                 G                     44                   0
+    ## 2       8446719                 G                     36                   1
+    ## 3       8446720                 G                     63                  15
+    ## 4       8446991                 G                     48                   0
+    ## 5       8447775                 G                     66                   1
+    ## 6       8448382                 G                     30                   0
     ##   data.rookieWins data.seasons data.shutouts data.ties data.wins total
     ## 1              18            9             3        45       126  1078
     ## 2              18            7            14        32       116  1078
@@ -685,86 +1155,141 @@ skater <- function (id,...){
     }
 }
 record_skater1 <- skater( 2 )
-head(record_skater1)
+record_skater1
 ```
 
-    ##   data.id data.activePlayer data.assists data.firstName data.franchiseId
-    ## 1   16897             FALSE            0          Gerry                2
-    ## 2   16903             FALSE            0           Jack                2
-    ## 3   16908             FALSE            0         George                2
-    ## 4   16917             FALSE            0         Raymie                2
-    ## 5   16920             FALSE            0            Ken                2
-    ## 6   16889             FALSE            0          Billy                2
-    ##   data.franchiseName data.gameTypeId data.gamesPlayed data.goals
-    ## 1 Montreal Wanderers               2                4          0
-    ## 2 Montreal Wanderers               2                1          0
-    ## 3 Montreal Wanderers               2                4          0
-    ## 4 Montreal Wanderers               2                1          0
-    ## 5 Montreal Wanderers               2                1          0
-    ## 6 Montreal Wanderers               2                2          1
-    ##   data.lastName                      data.mostAssistsGameDates
-    ## 1         Geran 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 2         Marks                                     1917-12-29
-    ## 3       O'Grady 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 4       Skilton 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 5      Thompson 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 6          Bell                         1917-12-19, 1917-12-29
-    ##   data.mostAssistsOneGame data.mostAssistsOneSeason
-    ## 1                       0                         0
-    ## 2                       0                         0
-    ## 3                       0                         0
-    ## 4                       0                         0
-    ## 5                       0                         0
-    ## 6                       0                         0
-    ##   data.mostAssistsSeasonIds                        data.mostGoalsGameDates
-    ## 1                  19171918 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 2                  19171918                                     1917-12-29
-    ## 3                  19171918 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 4                  19171918 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 5                  19171918 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29
-    ## 6                  19171918                                     1917-12-19
-    ##   data.mostGoalsOneGame data.mostGoalsOneSeason data.mostGoalsSeasonIds
-    ## 1                     0                       0                19171918
-    ## 2                     0                       0                19171918
-    ## 3                     0                       0                19171918
-    ## 4                     0                       0                19171918
-    ## 5                     0                       0                19171918
-    ## 6                     1                       1                19171918
-    ##   data.mostPenaltyMinutesOneSeason data.mostPenaltyMinutesSeasonIds
-    ## 1                                0                         19171918
-    ## 2                                0                         19171918
-    ## 3                                0                         19171918
-    ## 4                                0                         19171918
-    ## 5                                0                         19171918
-    ## 6                                0                         19171918
-    ##                         data.mostPointsGameDates data.mostPointsOneGame
-    ## 1 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
-    ## 2                                     1917-12-29                      0
-    ## 3 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
-    ## 4 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
-    ## 5 1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
-    ## 6                                     1917-12-19                      1
-    ##   data.mostPointsOneSeason data.mostPointsSeasonIds data.penaltyMinutes
-    ## 1                        0                 19171918                   0
-    ## 2                        0                 19171918                   0
-    ## 3                        0                 19171918                   0
-    ## 4                        0                 19171918                   0
-    ## 5                        0                 19171918                   0
-    ## 6                        1                 19171918                   0
-    ##   data.playerId data.points data.positionCode data.rookieGamesPlayed
-    ## 1       8446580           0                 C                      4
-    ## 2       8447616           0                 L                      1
-    ## 3       8448052           0                 D                      4
-    ## 4       8449048           0                 D                      1
-    ## 5       8449231           0                 L                      1
-    ## 6       8445044           1                 C                      2
-    ##   data.rookiePoints data.seasons total
-    ## 1                 0            1    11
-    ## 2                 0            1    11
-    ## 3                 0            1    11
-    ## 4                 0            1    11
-    ## 5                 0            1    11
-    ## 6                 1            1    11
+    ##    data.id data.activePlayer data.assists data.firstName data.franchiseId
+    ## 1    16897             FALSE            0          Gerry                2
+    ## 2    16903             FALSE            0           Jack                2
+    ## 3    16908             FALSE            0         George                2
+    ## 4    16917             FALSE            0         Raymie                2
+    ## 5    16920             FALSE            0            Ken                2
+    ## 6    16889             FALSE            0          Billy                2
+    ## 7    16914             FALSE            0            Art                2
+    ## 8    16919             FALSE            0           Phil                2
+    ## 9    16904             FALSE            1           Jack                2
+    ## 10   16912             FALSE            2           Dave                2
+    ## 11   16901             FALSE            1          Harry                2
+    ##    data.franchiseName data.gameTypeId data.gamesPlayed data.goals data.lastName
+    ## 1  Montreal Wanderers               2                4          0         Geran
+    ## 2  Montreal Wanderers               2                1          0         Marks
+    ## 3  Montreal Wanderers               2                4          0       O'Grady
+    ## 4  Montreal Wanderers               2                1          0       Skilton
+    ## 5  Montreal Wanderers               2                1          0      Thompson
+    ## 6  Montreal Wanderers               2                2          1          Bell
+    ## 7  Montreal Wanderers               2                3          1          Ross
+    ## 8  Montreal Wanderers               2                4          1       Stevens
+    ## 9  Montreal Wanderers               2                4          3      McDonald
+    ## 10 Montreal Wanderers               2                4          5       Ritchie
+    ## 11 Montreal Wanderers               2                4          6        Hyland
+    ##                         data.mostAssistsGameDates data.mostAssistsOneGame
+    ## 1  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 2                                      1917-12-29                       0
+    ## 3  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 4  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 5  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 6                          1917-12-19, 1917-12-29                       0
+    ## 7  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 8  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                       0
+    ## 9                                      1917-12-29                       1
+    ## 10                                     1917-12-19                       2
+    ## 11                                     1917-12-29                       1
+    ##    data.mostAssistsOneSeason data.mostAssistsSeasonIds
+    ## 1                          0                  19171918
+    ## 2                          0                  19171918
+    ## 3                          0                  19171918
+    ## 4                          0                  19171918
+    ## 5                          0                  19171918
+    ## 6                          0                  19171918
+    ## 7                          0                  19171918
+    ## 8                          0                  19171918
+    ## 9                          1                  19171918
+    ## 10                         2                  19171918
+    ## 11                         1                  19171918
+    ##                           data.mostGoalsGameDates data.mostGoalsOneGame
+    ## 1  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                     0
+    ## 2                                      1917-12-29                     0
+    ## 3  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                     0
+    ## 4  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                     0
+    ## 5  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                     0
+    ## 6                                      1917-12-19                     1
+    ## 7                                      1917-12-19                     1
+    ## 8                                      1917-12-22                     1
+    ## 9              1917-12-19, 1917-12-22, 1917-12-26                     1
+    ## 10                         1917-12-19, 1917-12-29                     2
+    ## 11                                     1917-12-19                     5
+    ##    data.mostGoalsOneSeason data.mostGoalsSeasonIds
+    ## 1                        0                19171918
+    ## 2                        0                19171918
+    ## 3                        0                19171918
+    ## 4                        0                19171918
+    ## 5                        0                19171918
+    ## 6                        1                19171918
+    ## 7                        1                19171918
+    ## 8                        1                19171918
+    ## 9                        3                19171918
+    ## 10                       5                19171918
+    ## 11                       6                19171918
+    ##    data.mostPenaltyMinutesOneSeason data.mostPenaltyMinutesSeasonIds
+    ## 1                                 0                         19171918
+    ## 2                                 0                         19171918
+    ## 3                                 0                         19171918
+    ## 4                                 0                         19171918
+    ## 5                                 0                         19171918
+    ## 6                                 0                         19171918
+    ## 7                                12                         19171918
+    ## 8                                 3                         19171918
+    ## 9                                 3                         19171918
+    ## 10                                3                         19171918
+    ## 11                                6                         19171918
+    ##                          data.mostPointsGameDates data.mostPointsOneGame
+    ## 1  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
+    ## 2                                      1917-12-29                      0
+    ## 3  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
+    ## 4  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
+    ## 5  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      0
+    ## 6                                      1917-12-19                      1
+    ## 7                                      1917-12-19                      1
+    ## 8                                      1917-12-22                      1
+    ## 9  1917-12-19, 1917-12-22, 1917-12-26, 1917-12-29                      1
+    ## 10                                     1917-12-19                      4
+    ## 11                                     1917-12-19                      5
+    ##    data.mostPointsOneSeason data.mostPointsSeasonIds data.penaltyMinutes
+    ## 1                         0                 19171918                   0
+    ## 2                         0                 19171918                   0
+    ## 3                         0                 19171918                   0
+    ## 4                         0                 19171918                   0
+    ## 5                         0                 19171918                   0
+    ## 6                         1                 19171918                   0
+    ## 7                         1                 19171918                  12
+    ## 8                         1                 19171918                   3
+    ## 9                         4                 19171918                   3
+    ## 10                        7                 19171918                   3
+    ## 11                        7                 19171918                   6
+    ##    data.playerId data.points data.positionCode data.rookieGamesPlayed
+    ## 1        8446580           0                 C                      4
+    ## 2        8447616           0                 L                      1
+    ## 3        8448052           0                 D                      4
+    ## 4        8449048           0                 D                      1
+    ## 5        8449231           0                 L                      1
+    ## 6        8445044           1                 C                      2
+    ## 7        8448456           1                 D                      3
+    ## 8        8449181           1                 C                      4
+    ## 9        8447761           4                 L                      4
+    ## 10       8448336           7                 D                      4
+    ## 11       8447013           7                 R                      4
+    ##    data.rookiePoints data.seasons total
+    ## 1                  0            1    11
+    ## 2                  0            1    11
+    ## 3                  0            1    11
+    ## 4                  0            1    11
+    ## 5                  0            1    11
+    ## 6                  1            1    11
+    ## 7                  1            1    11
+    ## 8                  1            1    11
+    ## 9                  4            1    11
+    ## 10                 7            1    11
+    ## 11                 7            1    11
 
 ``` r
 record_skater1 <- skater( 0 )
@@ -799,20 +1324,13 @@ head(data.frame(record_skater1))
     ## 4                                                 1955-02-19, 1956-12-01, 1962-11-24, 1965-11-20, 1967-12-28
     ## 5                                                                                     1990-02-18, 1994-01-02
     ## 6                                                 1926-01-19, 1929-11-19, 1929-11-23, 1929-12-10, 1930-01-18
-    ##   data.mostAssistsOneGame data.mostAssistsOneSeason
-    ## 1                       3                        35
-    ## 2                       0                         0
-    ## 3                       5                        65
-    ## 4                       4                        58
-    ## 5                       5                        73
-    ## 6                       2                        17
-    ##   data.mostAssistsSeasonIds
-    ## 1                  19651966
-    ## 2                  19171918
-    ## 3                  19701971
-    ## 4                  19601961
-    ## 5                  19901991
-    ## 6                  19291930
+    ##   data.mostAssistsOneGame data.mostAssistsOneSeason data.mostAssistsSeasonIds
+    ## 1                       3                        35                  19651966
+    ## 2                       0                         0                  19171918
+    ## 3                       5                        65                  19701971
+    ## 4                       4                        58                  19601961
+    ## 5                       5                        73                  19901991
+    ## 6                       2                        17                  19291930
     ##                                                              data.mostGoalsGameDates
     ## 1                                                             1959-03-15, 1961-12-16
     ## 2                                                                         1917-12-19
@@ -996,6 +1514,27 @@ head(data.frame(record_detail))
     ## 5             TOR Toronto Maple Leafs    39
     ## 6             BOS       Boston Bruins    39
 
+``` r
+str(data.frame(record_detail))
+```
+
+    ## 'data.frame':    39 obs. of  15 variables:
+    ##  $ X.https...records.nhl.com.site.api.franchise.detail.cayenneExp.mostRecentTeamId.: chr  "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId" "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId" "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId" "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId" ...
+    ##  $ data.id                                                                         : int  1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ data.active                                                                     : logi  TRUE FALSE FALSE FALSE TRUE TRUE ...
+    ##  $ data.captainHistory                                                             : chr  "<ul class=\"striped-list\">\r\n\t<li>Shea Weber: 2018-19 &ndash; Present</li>\r\n\t<li>Max Pacioretty: 2015-16 "| __truncated__ NA NA NA ...
+    ##  $ data.coachingHistory                                                            : chr  "<ul class=\"striped-list\">\r\n\t<li>Dominique Ducharme: Feb. 25, 2021&nbsp;&ndash; Present</li>\r\n\t<li>Claud"| __truncated__ NA NA NA ...
+    ##  $ data.dateAwarded                                                                : chr  "1917-11-26T00:00:00" "1917-11-26T00:00:00" "1917-11-26T00:00:00" "1917-11-26T00:00:00" ...
+    ##  $ data.directoryUrl                                                               : chr  "https://www.nhl.com/canadiens/team/administration" NA NA NA ...
+    ##  $ data.firstSeasonId                                                              : int  19171918 19171918 19171918 19191920 19171918 19241925 19241925 19251926 19251926 19261927 ...
+    ##  $ data.generalManagerHistory                                                      : chr  "<ul class=\"striped-list\">\r\n\t<li>Marc Bergevin: May 2, 2012 &ndash; Present</li>\r\n\t<li>Pierre Gauthier: "| __truncated__ NA NA NA ...
+    ##  $ data.heroImageUrl                                                               : chr  "https://records.nhl.com/site/asset/public/ext/hero/Team Pages/MTL/Price.jpg" "https://records.nhl.com/site/asset/public/images/hero/teams/defunct-franchises/montreal-wanderers.jpg" "https://records.nhl.com/site/asset/public/ext/hero/Team Pages/1927SEN.JPG" "https://records.nhl.com/site/asset/public/images/hero/teams/defunct-franchises/hamilton-tigers.jpg" ...
+    ##  $ data.mostRecentTeamId                                                           : int  8 41 45 37 10 6 43 51 39 3 ...
+    ##  $ data.retiredNumbersSummary                                                      : chr  "<ul class=\"striped-list\">\r\n\t<li>1 &ndash;&nbsp;Jacques Plante (1952-63)</li>\r\n\t<li>2 &ndash;&nbsp;Doug "| __truncated__ NA NA NA ...
+    ##  $ data.teamAbbrev                                                                 : chr  "MTL" "MWN" "SLE" "HAM" ...
+    ##  $ data.teamFullName                                                               : chr  "Montréal Canadiens" "Montreal Wanderers" "St. Louis Eagles" "Hamilton Tigers" ...
+    ##  $ total                                                                           : int  39 39 39 39 39 39 39 39 39 39 ...
+
 ### NHL stats API
 
 `stats` function is created to connect to NHL stats API. a logic
@@ -1025,10 +1564,10 @@ stats <- function(id, ... ) {
 
     ##                                                                                                                                                                            copyright
     ## 1 NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2021. All Rights Reserved.
-    ##   teams.id         teams.name      teams.link teams.abbreviation
-    ## 1        2 New York Islanders /api/v1/teams/2                NYI
-    ##   teams.teamName teams.locationName teams.firstYearOfPlay
-    ## 1      Islanders           New York                  1972
+    ##   teams.id         teams.name      teams.link teams.abbreviation teams.teamName
+    ## 1        2 New York Islanders /api/v1/teams/2                NYI      Islanders
+    ##   teams.locationName teams.firstYearOfPlay
+    ## 1           New York                  1972
     ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                          teams.teamStats
     ## 1 56, NA, 32, 12th, 17, 11th, 7, 11th, 71, 12th, 63.4, 12th, 2.714, 21st, 2.232, 2nd, 1.2418, 7th, 18.8, 20th, 27, 24th, 22, 2nd, 144, 28th, 83.7, 6th, 28.9821, 22nd, 28.3929, 10th, 0.821, 10th, 0.321, 16th, 0.833, 7th, 0.842, 20th, 0.69, 4th, 0.44, 4th, 2916, 31st, 1498, 25th, 1418, 2nd, 51.4, 9th, 9.4, NA, 0.921, NA, NA, 2nd, NA, 1st, NA, 17th, 2, 2, New York Islanders, New York Islanders, /api/v1/teams/2, /api/v1/teams/2, statsSingleSeason, R, Regular season, FALSE
     ##   teams.shortName            teams.officialSiteUrl teams.franchiseId
@@ -1041,10 +1580,10 @@ stats <- function(id, ... ) {
     ## 1                     EDT                25     MassMutual East
     ##    teams.division.link teams.conference.id teams.conference.name
     ## 1 /api/v1/divisions/25                   6               Eastern
-    ##   teams.conference.link teams.franchise.franchiseId
-    ## 1 /api/v1/conferences/6                          22
-    ##   teams.franchise.teamName  teams.franchise.link
-    ## 1                Islanders /api/v1/franchises/22
+    ##   teams.conference.link teams.franchise.franchiseId teams.franchise.teamName
+    ## 1 /api/v1/conferences/6                          22                Islanders
+    ##    teams.franchise.link
+    ## 1 /api/v1/franchises/22
 
 ``` r
    stats_data2 <- stats ("teams")
@@ -1249,10 +1788,10 @@ result1
 
     ##   data.id data.firstSeasonId      data.fullName data.lastSeasonId
     ## 1       2           19171918 Montreal Wanderers          19171918
-    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName
-    ## 1                    41             MWN           Wanderers
-    ##   data.teamPlaceName total
-    ## 1           Montreal    39
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                    41             MWN           Wanderers           Montreal
+    ##   total
+    ## 1    39
 
 ``` r
 result2 <- wrapper ("skater", 0)
@@ -1287,20 +1826,13 @@ head(data.frame(result2))
     ## 4                                                 1955-02-19, 1956-12-01, 1962-11-24, 1965-11-20, 1967-12-28
     ## 5                                                                                     1990-02-18, 1994-01-02
     ## 6                                                 1926-01-19, 1929-11-19, 1929-11-23, 1929-12-10, 1930-01-18
-    ##   data.mostAssistsOneGame data.mostAssistsOneSeason
-    ## 1                       3                        35
-    ## 2                       0                         0
-    ## 3                       5                        65
-    ## 4                       4                        58
-    ## 5                       5                        73
-    ## 6                       2                        17
-    ##   data.mostAssistsSeasonIds
-    ## 1                  19651966
-    ## 2                  19171918
-    ## 3                  19701971
-    ## 4                  19601961
-    ## 5                  19901991
-    ## 6                  19291930
+    ##   data.mostAssistsOneGame data.mostAssistsOneSeason data.mostAssistsSeasonIds
+    ## 1                       3                        35                  19651966
+    ## 2                       0                         0                  19171918
+    ## 3                       5                        65                  19701971
+    ## 4                       4                        58                  19601961
+    ## 5                       5                        73                  19901991
+    ## 6                       2                        17                  19291930
     ##                                                              data.mostGoalsGameDates
     ## 1                                                             1959-03-15, 1961-12-16
     ## 2                                                                         1917-12-19
@@ -1358,10 +1890,10 @@ result3
 
     ##                                                                                                                                                                            copyright
     ## 1 NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2021. All Rights Reserved.
-    ##   teams.id         teams.name      teams.link teams.abbreviation
-    ## 1        2 New York Islanders /api/v1/teams/2                NYI
-    ##   teams.teamName teams.locationName teams.firstYearOfPlay
-    ## 1      Islanders           New York                  1972
+    ##   teams.id         teams.name      teams.link teams.abbreviation teams.teamName
+    ## 1        2 New York Islanders /api/v1/teams/2                NYI      Islanders
+    ##   teams.locationName teams.firstYearOfPlay
+    ## 1           New York                  1972
     ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                          teams.teamStats
     ## 1 56, NA, 32, 12th, 17, 11th, 7, 11th, 71, 12th, 63.4, 12th, 2.714, 21st, 2.232, 2nd, 1.2418, 7th, 18.8, 20th, 27, 24th, 22, 2nd, 144, 28th, 83.7, 6th, 28.9821, 22nd, 28.3929, 10th, 0.821, 10th, 0.321, 16th, 0.833, 7th, 0.842, 20th, 0.69, 4th, 0.44, 4th, 2916, 31st, 1498, 25th, 1418, 2nd, 51.4, 9th, 9.4, NA, 0.921, NA, NA, 2nd, NA, 1st, NA, 17th, 2, 2, New York Islanders, New York Islanders, /api/v1/teams/2, /api/v1/teams/2, statsSingleSeason, R, Regular season, FALSE
     ##   teams.shortName            teams.officialSiteUrl teams.franchiseId
@@ -1374,10 +1906,10 @@ result3
     ## 1                     EDT                25     MassMutual East
     ##    teams.division.link teams.conference.id teams.conference.name
     ## 1 /api/v1/divisions/25                   6               Eastern
-    ##   teams.conference.link teams.franchise.franchiseId
-    ## 1 /api/v1/conferences/6                          22
-    ##   teams.franchise.teamName  teams.franchise.link
-    ## 1                Islanders /api/v1/franchises/22
+    ##   teams.conference.link teams.franchise.franchiseId teams.franchise.teamName
+    ## 1 /api/v1/conferences/6                          22                Islanders
+    ##    teams.franchise.link
+    ## 1 /api/v1/franchises/22
 
 ## Exploratory Data analysis
 
@@ -1396,27 +1928,27 @@ franchise_Data <- rename(franchise_Data, data.franchiseId = data.id  )
 head (franchise_Data) 
 ```
 
-    ##   data.franchiseId data.firstSeasonId       data.fullName
-    ## 1                1           19171918  Montréal Canadiens
-    ## 2                2           19171918  Montreal Wanderers
-    ## 3                3           19171918    St. Louis Eagles
-    ## 4                4           19191920     Hamilton Tigers
-    ## 5                5           19171918 Toronto Maple Leafs
-    ## 6                6           19241925       Boston Bruins
-    ##   data.lastSeasonId data.mostRecentTeamId data.teamAbbrev
-    ## 1                NA                     8             MTL
-    ## 2          19171918                    41             MWN
-    ## 3          19341935                    45             SLE
-    ## 4          19241925                    37             HAM
-    ## 5                NA                    10             TOR
-    ## 6                NA                     6             BOS
-    ##   data.teamCommonName data.teamPlaceName total
-    ## 1           Canadiens           Montréal    39
-    ## 2           Wanderers           Montreal    39
-    ## 3              Eagles          St. Louis    39
-    ## 4              Tigers           Hamilton    39
-    ## 5         Maple Leafs            Toronto    39
-    ## 6              Bruins             Boston    39
+    ##   data.franchiseId data.firstSeasonId       data.fullName data.lastSeasonId
+    ## 1                1           19171918  Montréal Canadiens                NA
+    ## 2                2           19171918  Montreal Wanderers          19171918
+    ## 3                3           19171918    St. Louis Eagles          19341935
+    ## 4                4           19191920     Hamilton Tigers          19241925
+    ## 5                5           19171918 Toronto Maple Leafs                NA
+    ## 6                6           19241925       Boston Bruins                NA
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                     8             MTL           Canadiens           Montréal
+    ## 2                    41             MWN           Wanderers           Montreal
+    ## 3                    45             SLE              Eagles          St. Louis
+    ## 4                    37             HAM              Tigers           Hamilton
+    ## 5                    10             TOR         Maple Leafs            Toronto
+    ## 6                     6             BOS              Bruins             Boston
+    ##   total
+    ## 1    39
+    ## 2    39
+    ## 3    39
+    ## 4    39
+    ## 5    39
+    ## 6    39
 
 ``` r
 season_Data <-wrapper ("season",0 )
@@ -1451,48 +1983,34 @@ head(season_Data)
     ## 4               4           1985-86 (80)              17
     ## 5               4           1995-96 (82)              16
     ## 6               5           1972-73 (78)              14
-    ##                     data.fewestWinsSeasons data.franchiseId
-    ## 1                             1975-76 (80)               23
-    ## 2                             1972-73 (78)               22
-    ## 3 1952-53 (70), 1954-55 (70), 1959-60 (70)               10
-    ## 4                             1969-70 (76)               16
-    ## 5                             1983-84 (80)               17
-    ## 6                             1962-63 (70)                6
-    ##    data.franchiseName data.homeLossStreak
-    ## 1   New Jersey Devils                  10
-    ## 2  New York Islanders                   7
-    ## 3    New York Rangers                   7
-    ## 4 Philadelphia Flyers                   8
-    ## 5 Pittsburgh Penguins                  14
-    ## 6       Boston Bruins                  11
-    ##                               data.homeLossStreakDates
-    ## 1                            Jan 26 2021 - Mar 13 2021
-    ## 2 Nov 13 1999 - Dec 14 1999, Feb 27 2001 - Mar 29 2001
-    ## 3 Oct 20 1976 - Nov 14 1976, Mar 24 1993 - Apr 14 1993
-    ## 4                            Dec 09 2006 - Jan 27 2007
-    ## 5                            Dec 31 2003 - Feb 22 2004
-    ## 6                            Dec 08 1924 - Feb 17 1925
-    ##   data.homePointStreak
-    ## 1                   15
-    ## 2                   23
-    ## 3                   24
-    ## 4                   26
-    ## 5                   20
-    ## 6                   27
-    ##                              data.homePointStreakDates data.homeWinStreak
-    ## 1 Jan 08 1997 - Mar 15 1997, Dec 14 1999 - Feb 17 2000                 11
-    ## 2 Oct 17 1978 - Jan 20 1979, Jan 02 1982 - Apr 03 1982                 14
-    ## 3 Oct 14 1970 - Jan 31 1971, Oct 24 1995 - Feb 15 1996                 14
-    ## 4                            Oct 11 1979 - Feb 03 1980                 20
-    ## 5                            Nov 30 1974 - Feb 22 1975                 13
-    ## 6                            Nov 22 1970 - Mar 20 1971                 20
-    ##     data.homeWinStreakDates data.homeWinlessStreak
-    ## 1 Feb 09 2009 - Mar 20 2009                     14
-    ## 2 Jan 02 1982 - Feb 25 1982                      9
-    ## 3 Dec 19 1939 - Feb 25 1940                     10
-    ## 4 Jan 04 1976 - Apr 03 1976                     13
-    ## 5 Nov 15 2013 - Jan 15 2014                     16
-    ## 6 Dec 03 1929 - Mar 18 1930                     11
+    ##                     data.fewestWinsSeasons data.franchiseId  data.franchiseName
+    ## 1                             1975-76 (80)               23   New Jersey Devils
+    ## 2                             1972-73 (78)               22  New York Islanders
+    ## 3 1952-53 (70), 1954-55 (70), 1959-60 (70)               10    New York Rangers
+    ## 4                             1969-70 (76)               16 Philadelphia Flyers
+    ## 5                             1983-84 (80)               17 Pittsburgh Penguins
+    ## 6                             1962-63 (70)                6       Boston Bruins
+    ##   data.homeLossStreak                             data.homeLossStreakDates
+    ## 1                  10                            Jan 26 2021 - Mar 13 2021
+    ## 2                   7 Nov 13 1999 - Dec 14 1999, Feb 27 2001 - Mar 29 2001
+    ## 3                   7 Oct 20 1976 - Nov 14 1976, Mar 24 1993 - Apr 14 1993
+    ## 4                   8                            Dec 09 2006 - Jan 27 2007
+    ## 5                  14                            Dec 31 2003 - Feb 22 2004
+    ## 6                  11                            Dec 08 1924 - Feb 17 1925
+    ##   data.homePointStreak                            data.homePointStreakDates
+    ## 1                   15 Jan 08 1997 - Mar 15 1997, Dec 14 1999 - Feb 17 2000
+    ## 2                   23 Oct 17 1978 - Jan 20 1979, Jan 02 1982 - Apr 03 1982
+    ## 3                   24 Oct 14 1970 - Jan 31 1971, Oct 24 1995 - Feb 15 1996
+    ## 4                   26                            Oct 11 1979 - Feb 03 1980
+    ## 5                   20                            Nov 30 1974 - Feb 22 1975
+    ## 6                   27                            Nov 22 1970 - Mar 20 1971
+    ##   data.homeWinStreak   data.homeWinStreakDates data.homeWinlessStreak
+    ## 1                 11 Feb 09 2009 - Mar 20 2009                     14
+    ## 2                 14 Jan 02 1982 - Feb 25 1982                      9
+    ## 3                 14 Dec 19 1939 - Feb 25 1940                     10
+    ## 4                 20 Jan 04 1976 - Apr 03 1976                     13
+    ## 5                 13 Nov 15 2013 - Jan 15 2014                     16
+    ## 6                 20 Dec 03 1929 - Mar 18 1930                     11
     ##                            data.homeWinlessStreakDates data.lossStreak
     ## 1 Feb 12 1976 - Mar 30 1976, Feb 04 1979 - Mar 31 1979              14
     ## 2                            Mar 02 1999 - Apr 06 1999              12
@@ -1542,34 +2060,27 @@ head(season_Data)
     ## 4           1975-76 (80)                13             1974-75 (80)
     ## 5           1992-93 (84)                10             2014-15 (82)
     ## 6           1970-71 (78)                15             1927-28 (44)
-    ##   data.mostTies data.mostTiesSeasons data.mostWins
-    ## 1            21         1977-78 (80)            51
-    ## 2            22         1974-75 (80)            54
-    ## 3            21         1950-51 (70)            53
-    ## 4            24         1969-70 (76)            53
-    ## 5            20         1970-71 (78)            56
-    ## 6            21         1954-55 (70)            57
-    ##         data.mostWinsSeasons data.pointStreak     data.pointStreakDates
-    ## 1               2008-09 (82)               16 Dec 26 1999 - Jan 28 2000
-    ## 2               1981-82 (80)               17 Oct 12 2019 - Nov 23 2019
-    ## 3               2014-15 (82)               19 Nov 23 1939 - Jan 13 1940
-    ## 4 1984-85 (80), 1985-86 (80)               35 Oct 14 1979 - Jan 06 1980
-    ## 5               1992-93 (84)               18 Mar 09 1993 - Apr 14 1993
-    ## 6               1970-71 (78)               23 Dec 22 1940 - Feb 23 1941
-    ##   data.roadLossStreak                             data.roadLossStreakDates
-    ## 1                  12                            Oct 19 1983 - Dec 01 1983
-    ## 2                  15                            Jan 20 1973 - Mar 31 1973
-    ## 3                  10 Oct 30 1943 - Dec 23 1943, Feb 08 1961 - Mar 15 1961
-    ## 4                   8 Oct 25 1972 - Nov 26 1972, Mar 03 1988 - Mar 29 1988
-    ## 5                  18                            Dec 23 1982 - Mar 04 1983
-    ## 6                  14                            Dec 27 1964 - Feb 21 1965
-    ##   data.roadPointStreak
-    ## 1                   10
-    ## 2                    8
-    ## 3                   11
-    ## 4                   16
-    ## 5                    8
-    ## 6                   16
+    ##   data.mostTies data.mostTiesSeasons data.mostWins       data.mostWinsSeasons
+    ## 1            21         1977-78 (80)            51               2008-09 (82)
+    ## 2            22         1974-75 (80)            54               1981-82 (80)
+    ## 3            21         1950-51 (70)            53               2014-15 (82)
+    ## 4            24         1969-70 (76)            53 1984-85 (80), 1985-86 (80)
+    ## 5            20         1970-71 (78)            56               1992-93 (84)
+    ## 6            21         1954-55 (70)            57               1970-71 (78)
+    ##   data.pointStreak     data.pointStreakDates data.roadLossStreak
+    ## 1               16 Dec 26 1999 - Jan 28 2000                  12
+    ## 2               17 Oct 12 2019 - Nov 23 2019                  15
+    ## 3               19 Nov 23 1939 - Jan 13 1940                  10
+    ## 4               35 Oct 14 1979 - Jan 06 1980                   8
+    ## 5               18 Mar 09 1993 - Apr 14 1993                  18
+    ## 6               23 Dec 22 1940 - Feb 23 1941                  14
+    ##                               data.roadLossStreakDates data.roadPointStreak
+    ## 1                            Oct 19 1983 - Dec 01 1983                   10
+    ## 2                            Jan 20 1973 - Mar 31 1973                    8
+    ## 3 Oct 30 1943 - Dec 23 1943, Feb 08 1961 - Mar 15 1961                   11
+    ## 4 Oct 25 1972 - Nov 26 1972, Mar 03 1988 - Mar 29 1988                   16
+    ## 5                            Dec 23 1982 - Mar 04 1983                    8
+    ## 6                            Dec 27 1964 - Feb 21 1965                   16
     ##                                                                                    data.roadPointStreakDates
     ## 1                                                       Feb 27 2001 - Apr 07 2001, Jan 30 2007 - Mar 15 2007
     ## 2 Feb 12 1976 - Mar 14 1976, Nov 12 1978 - Dec 09 1978, Feb 27 1981 - Mar 29 1981, Oct 07 1981 - Nov 11 1981
@@ -1598,20 +2109,13 @@ head(season_Data)
     ## 4             13                            Oct 19 1985 - Nov 17 1985
     ## 5             17                            Mar 09 1993 - Apr 10 1993
     ## 6             14                            Dec 03 1929 - Jan 09 1930
-    ##   data.winlessStreak                              data.winlessStreakDates
-    ## 1                 27                            Feb 12 1976 - Apr 04 1976
-    ## 2                 15                            Nov 22 1972 - Dec 21 1972
-    ## 3                 21                            Jan 23 1944 - Mar 19 1944
-    ## 4                 12                            Feb 24 1999 - Mar 16 1999
-    ## 5                 18 Jan 02 1983 - Feb 10 1983, Jan 13 2004 - Feb 22 2004
-    ## 6                 20                            Jan 28 1962 - Mar 11 1962
-    ##   total
-    ## 1    39
-    ## 2    39
-    ## 3    39
-    ## 4    39
-    ## 5    39
-    ## 6    39
+    ##   data.winlessStreak                              data.winlessStreakDates total
+    ## 1                 27                            Feb 12 1976 - Apr 04 1976    39
+    ## 2                 15                            Nov 22 1972 - Dec 21 1972    39
+    ## 3                 21                            Jan 23 1944 - Mar 19 1944    39
+    ## 4                 12                            Feb 24 1999 - Mar 16 1999    39
+    ## 5                 18 Jan 02 1983 - Feb 10 1983, Jan 13 2004 - Feb 22 2004    39
+    ## 6                 20                            Jan 28 1962 - Mar 11 1962    39
 
 ``` r
 total_Data <- wrapper ("totals",0,"full" )
@@ -1660,96 +2164,82 @@ head(total_Data)
     ## 4            NA            76                   0                 0
     ## 5           360          1269                  68                79
     ## 6             7           107                   0                 0
-    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode
-    ## 1           196           1  New Jersey Devils       219          NJD
-    ## 2            25           1  New Jersey Devils        NA          NJD
-    ## 3           177           2 New York Islanders       347          NYI
-    ## 4            12           2 New York Islanders        NA          NYI
-    ## 5           408           3   New York Rangers       808          NYR
-    ## 6            44           3   New York Rangers         8          NYR
-    ##   data.wins total
-    ## 1      1394   105
-    ## 2       137   105
-    ## 3      1688   105
-    ## 4       171   105
-    ## 5      2883   105
-    ## 6       244   105
+    ##   data.shutouts data.teamId      data.teamName data.ties data.triCode data.wins
+    ## 1           196           1  New Jersey Devils       219          NJD      1394
+    ## 2            25           1  New Jersey Devils        NA          NJD       137
+    ## 3           177           2 New York Islanders       347          NYI      1688
+    ## 4            12           2 New York Islanders        NA          NYI       171
+    ## 5           408           3   New York Rangers       808          NYR      2883
+    ## 6            44           3   New York Rangers         8          NYR       244
+    ##   total
+    ## 1   105
+    ## 2   105
+    ## 3   105
+    ## 4   105
+    ## 5   105
+    ## 6   105
 
 ``` r
 frch_seas_comb <- inner_join(franchise_Data, season_Data [ ,-1], copy=TRUE, by=("data.franchiseId"))
 head(frch_seas_comb) 
 ```
 
-    ##   data.franchiseId data.firstSeasonId       data.fullName
-    ## 1                1           19171918  Montréal Canadiens
-    ## 2                2           19171918  Montreal Wanderers
-    ## 3                3           19171918    St. Louis Eagles
-    ## 4                4           19191920     Hamilton Tigers
-    ## 5                5           19171918 Toronto Maple Leafs
-    ## 6                6           19241925       Boston Bruins
-    ##   data.lastSeasonId data.mostRecentTeamId data.teamAbbrev
-    ## 1                NA                     8             MTL
-    ## 2          19171918                    41             MWN
-    ## 3          19341935                    45             SLE
-    ## 4          19241925                    37             HAM
-    ## 5                NA                    10             TOR
-    ## 6                NA                     6             BOS
-    ##   data.teamCommonName data.teamPlaceName total.x data.fewestGoals
-    ## 1           Canadiens           Montréal      39              155
-    ## 2           Wanderers           Montreal      39               NA
-    ## 3              Eagles          St. Louis      39               NA
-    ## 4              Tigers           Hamilton      39               NA
-    ## 5         Maple Leafs            Toronto      39              147
-    ## 6              Bruins             Boston      39              147
-    ##   data.fewestGoalsAgainst data.fewestGoalsAgainstSeasons
-    ## 1                     131                   1955-56 (70)
-    ## 2                      NA                           <NA>
-    ## 3                      NA                           <NA>
-    ## 4                      NA                           <NA>
-    ## 5                     131                   1953-54 (70)
-    ## 6                     172                   1952-53 (70)
-    ##   data.fewestGoalsSeasons data.fewestLosses data.fewestLossesSeasons
-    ## 1            1952-53 (70)                 8             1976-77 (80)
-    ## 2                    <NA>                NA                     <NA>
-    ## 3                    <NA>                NA                     <NA>
-    ## 4                    <NA>                NA                     <NA>
-    ## 5            1954-55 (70)                16             1950-51 (70)
-    ## 6            1955-56 (70)                13             1971-72 (78)
-    ##   data.fewestPoints data.fewestPointsSeasons data.fewestTies
-    ## 1                65             1950-51 (70)               5
-    ## 2                NA                     <NA>              NA
-    ## 3                NA                     <NA>              NA
-    ## 4                NA                     <NA>              NA
-    ## 5                48             1984-85 (80)               4
-    ## 6                38             1961-62 (70)               5
-    ##   data.fewestTiesSeasons data.fewestWins     data.fewestWinsSeasons
-    ## 1           1983-84 (80)              25               1950-51 (70)
-    ## 2                   <NA>              NA                       <NA>
-    ## 3                   <NA>              NA                       <NA>
-    ## 4                   <NA>              NA                       <NA>
-    ## 5           1989-90 (80)              20 1981-82 (80), 1984-85 (80)
-    ## 6           1972-73 (78)              14               1962-63 (70)
-    ##    data.franchiseName data.homeLossStreak
-    ## 1  Montréal Canadiens                   7
-    ## 2  Montreal Wanderers                  NA
-    ## 3    St. Louis Eagles                   5
-    ## 4     Hamilton Tigers                   5
-    ## 5 Toronto Maple Leafs                   7
-    ## 6       Boston Bruins                  11
-    ##                               data.homeLossStreakDates
-    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000
-    ## 2                                                 <NA>
-    ## 3                            Jan 08 1931 - Feb 03 1931
-    ## 4                            Jan 03 1921 - Jan 29 1921
-    ## 5                            Nov 11 1984 - Dec 05 1984
-    ## 6                            Dec 08 1924 - Feb 17 1925
-    ##   data.homePointStreak
-    ## 1                   34
-    ## 2                   NA
-    ## 3                   12
-    ## 4                    5
-    ## 5                   18
-    ## 6                   27
+    ##   data.franchiseId data.firstSeasonId       data.fullName data.lastSeasonId
+    ## 1                1           19171918  Montréal Canadiens                NA
+    ## 2                2           19171918  Montreal Wanderers          19171918
+    ## 3                3           19171918    St. Louis Eagles          19341935
+    ## 4                4           19191920     Hamilton Tigers          19241925
+    ## 5                5           19171918 Toronto Maple Leafs                NA
+    ## 6                6           19241925       Boston Bruins                NA
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                     8             MTL           Canadiens           Montréal
+    ## 2                    41             MWN           Wanderers           Montreal
+    ## 3                    45             SLE              Eagles          St. Louis
+    ## 4                    37             HAM              Tigers           Hamilton
+    ## 5                    10             TOR         Maple Leafs            Toronto
+    ## 6                     6             BOS              Bruins             Boston
+    ##   total.x data.fewestGoals data.fewestGoalsAgainst
+    ## 1      39              155                     131
+    ## 2      39               NA                      NA
+    ## 3      39               NA                      NA
+    ## 4      39               NA                      NA
+    ## 5      39              147                     131
+    ## 6      39              147                     172
+    ##   data.fewestGoalsAgainstSeasons data.fewestGoalsSeasons data.fewestLosses
+    ## 1                   1955-56 (70)            1952-53 (70)                 8
+    ## 2                           <NA>                    <NA>                NA
+    ## 3                           <NA>                    <NA>                NA
+    ## 4                           <NA>                    <NA>                NA
+    ## 5                   1953-54 (70)            1954-55 (70)                16
+    ## 6                   1952-53 (70)            1955-56 (70)                13
+    ##   data.fewestLossesSeasons data.fewestPoints data.fewestPointsSeasons
+    ## 1             1976-77 (80)                65             1950-51 (70)
+    ## 2                     <NA>                NA                     <NA>
+    ## 3                     <NA>                NA                     <NA>
+    ## 4                     <NA>                NA                     <NA>
+    ## 5             1950-51 (70)                48             1984-85 (80)
+    ## 6             1971-72 (78)                38             1961-62 (70)
+    ##   data.fewestTies data.fewestTiesSeasons data.fewestWins
+    ## 1               5           1983-84 (80)              25
+    ## 2              NA                   <NA>              NA
+    ## 3              NA                   <NA>              NA
+    ## 4              NA                   <NA>              NA
+    ## 5               4           1989-90 (80)              20
+    ## 6               5           1972-73 (78)              14
+    ##       data.fewestWinsSeasons  data.franchiseName data.homeLossStreak
+    ## 1               1950-51 (70)  Montréal Canadiens                   7
+    ## 2                       <NA>  Montreal Wanderers                  NA
+    ## 3                       <NA>    St. Louis Eagles                   5
+    ## 4                       <NA>     Hamilton Tigers                   5
+    ## 5 1981-82 (80), 1984-85 (80) Toronto Maple Leafs                   7
+    ## 6               1962-63 (70)       Boston Bruins                  11
+    ##                               data.homeLossStreakDates data.homePointStreak
+    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000                   34
+    ## 2                                                 <NA>                   NA
+    ## 3                            Jan 08 1931 - Feb 03 1931                   12
+    ## 4                            Jan 03 1921 - Jan 29 1921                    5
+    ## 5                            Nov 11 1984 - Dec 05 1984                   18
+    ## 6                            Dec 08 1924 - Feb 17 1925                   27
     ##                              data.homePointStreakDates data.homeWinStreak
     ## 1                            Nov 01 1976 - Apr 02 1977                 13
     ## 2                                                 <NA>                 NA
@@ -1757,20 +2247,13 @@ head(frch_seas_comb)
     ## 4 Nov 29 1924 - Jan 01 1925, Jan 17 1925 - Feb 11 1925                  5
     ## 5 Nov 28 1933 - Mar 10 1934, Oct 31 1953 - Jan 23 1954                 13
     ## 6                            Nov 22 1970 - Mar 20 1971                 20
-    ##                                data.homeWinStreakDates
-    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977
-    ## 2                                                 <NA>
-    ## 3 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ## 4 Nov 29 1924 - Jan 01 1925, Jan 17 1925 - Feb 11 1925
-    ## 5                            Jan 31 2018 - Mar 24 2018
-    ## 6                            Dec 03 1929 - Mar 18 1930
-    ##   data.homeWinlessStreak
-    ## 1                     15
-    ## 2                     NA
-    ## 3                      9
-    ## 4                      5
-    ## 5                     11
-    ## 6                     11
+    ##                                data.homeWinStreakDates data.homeWinlessStreak
+    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977                     15
+    ## 2                                                 <NA>                     NA
+    ## 3 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ## 4 Nov 29 1924 - Jan 01 1925, Jan 17 1925 - Feb 11 1925                      5
+    ## 5                            Jan 31 2018 - Mar 24 2018                     11
+    ## 6                            Dec 03 1929 - Mar 18 1930                     11
     ##                            data.homeWinlessStreakDates data.lossStreak
     ## 1                            Dec 16 1939 - Mar 07 1940              12
     ## 2                                                 <NA>               5
@@ -1889,55 +2372,48 @@ frch_seas_ttl_comb <- inner_join (frch_seas_comb, total_Data [ ,-1], copy=TRUE, 
 head(frch_seas_ttl_comb)  
 ```
 
-    ##   data.franchiseId data.firstSeasonId.x      data.fullName
-    ## 1                1             19171918 Montréal Canadiens
-    ## 2                1             19171918 Montréal Canadiens
-    ## 3                2             19171918 Montreal Wanderers
-    ## 4                3             19171918   St. Louis Eagles
-    ## 5                3             19171918   St. Louis Eagles
-    ## 6                3             19171918   St. Louis Eagles
-    ##   data.lastSeasonId.x data.mostRecentTeamId data.teamAbbrev
-    ## 1                  NA                     8             MTL
-    ## 2                  NA                     8             MTL
-    ## 3            19171918                    41             MWN
-    ## 4            19341935                    45             SLE
-    ## 5            19341935                    45             SLE
-    ## 6            19341935                    45             SLE
-    ##   data.teamCommonName data.teamPlaceName total.x data.fewestGoals
-    ## 1           Canadiens           Montréal      39              155
-    ## 2           Canadiens           Montréal      39              155
-    ## 3           Wanderers           Montreal      39               NA
-    ## 4              Eagles          St. Louis      39               NA
-    ## 5              Eagles          St. Louis      39               NA
-    ## 6              Eagles          St. Louis      39               NA
-    ##   data.fewestGoalsAgainst data.fewestGoalsAgainstSeasons
-    ## 1                     131                   1955-56 (70)
-    ## 2                     131                   1955-56 (70)
-    ## 3                      NA                           <NA>
-    ## 4                      NA                           <NA>
-    ## 5                      NA                           <NA>
-    ## 6                      NA                           <NA>
-    ##   data.fewestGoalsSeasons data.fewestLosses data.fewestLossesSeasons
-    ## 1            1952-53 (70)                 8             1976-77 (80)
-    ## 2            1952-53 (70)                 8             1976-77 (80)
-    ## 3                    <NA>                NA                     <NA>
-    ## 4                    <NA>                NA                     <NA>
-    ## 5                    <NA>                NA                     <NA>
-    ## 6                    <NA>                NA                     <NA>
-    ##   data.fewestPoints data.fewestPointsSeasons data.fewestTies
-    ## 1                65             1950-51 (70)               5
-    ## 2                65             1950-51 (70)               5
-    ## 3                NA                     <NA>              NA
-    ## 4                NA                     <NA>              NA
-    ## 5                NA                     <NA>              NA
-    ## 6                NA                     <NA>              NA
-    ##   data.fewestTiesSeasons data.fewestWins data.fewestWinsSeasons
-    ## 1           1983-84 (80)              25           1950-51 (70)
-    ## 2           1983-84 (80)              25           1950-51 (70)
-    ## 3                   <NA>              NA                   <NA>
-    ## 4                   <NA>              NA                   <NA>
-    ## 5                   <NA>              NA                   <NA>
-    ## 6                   <NA>              NA                   <NA>
+    ##   data.franchiseId data.firstSeasonId.x      data.fullName data.lastSeasonId.x
+    ## 1                1             19171918 Montréal Canadiens                  NA
+    ## 2                1             19171918 Montréal Canadiens                  NA
+    ## 3                2             19171918 Montreal Wanderers            19171918
+    ## 4                3             19171918   St. Louis Eagles            19341935
+    ## 5                3             19171918   St. Louis Eagles            19341935
+    ## 6                3             19171918   St. Louis Eagles            19341935
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                     8             MTL           Canadiens           Montréal
+    ## 2                     8             MTL           Canadiens           Montréal
+    ## 3                    41             MWN           Wanderers           Montreal
+    ## 4                    45             SLE              Eagles          St. Louis
+    ## 5                    45             SLE              Eagles          St. Louis
+    ## 6                    45             SLE              Eagles          St. Louis
+    ##   total.x data.fewestGoals data.fewestGoalsAgainst
+    ## 1      39              155                     131
+    ## 2      39              155                     131
+    ## 3      39               NA                      NA
+    ## 4      39               NA                      NA
+    ## 5      39               NA                      NA
+    ## 6      39               NA                      NA
+    ##   data.fewestGoalsAgainstSeasons data.fewestGoalsSeasons data.fewestLosses
+    ## 1                   1955-56 (70)            1952-53 (70)                 8
+    ## 2                   1955-56 (70)            1952-53 (70)                 8
+    ## 3                           <NA>                    <NA>                NA
+    ## 4                           <NA>                    <NA>                NA
+    ## 5                           <NA>                    <NA>                NA
+    ## 6                           <NA>                    <NA>                NA
+    ##   data.fewestLossesSeasons data.fewestPoints data.fewestPointsSeasons
+    ## 1             1976-77 (80)                65             1950-51 (70)
+    ## 2             1976-77 (80)                65             1950-51 (70)
+    ## 3                     <NA>                NA                     <NA>
+    ## 4                     <NA>                NA                     <NA>
+    ## 5                     <NA>                NA                     <NA>
+    ## 6                     <NA>                NA                     <NA>
+    ##   data.fewestTies data.fewestTiesSeasons data.fewestWins data.fewestWinsSeasons
+    ## 1               5           1983-84 (80)              25           1950-51 (70)
+    ## 2               5           1983-84 (80)              25           1950-51 (70)
+    ## 3              NA                   <NA>              NA                   <NA>
+    ## 4              NA                   <NA>              NA                   <NA>
+    ## 5              NA                   <NA>              NA                   <NA>
+    ## 6              NA                   <NA>              NA                   <NA>
     ##   data.franchiseName data.homeLossStreak
     ## 1 Montréal Canadiens                   7
     ## 2 Montréal Canadiens                   7
@@ -1945,34 +2421,34 @@ head(frch_seas_ttl_comb)
     ## 4   St. Louis Eagles                   5
     ## 5   St. Louis Eagles                   5
     ## 6   St. Louis Eagles                   5
-    ##                               data.homeLossStreakDates
-    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000
-    ## 2 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000
-    ## 3                                                 <NA>
-    ## 4                            Jan 08 1931 - Feb 03 1931
-    ## 5                            Jan 08 1931 - Feb 03 1931
-    ## 6                            Jan 08 1931 - Feb 03 1931
-    ##   data.homePointStreak data.homePointStreakDates data.homeWinStreak
-    ## 1                   34 Nov 01 1976 - Apr 02 1977                 13
-    ## 2                   34 Nov 01 1976 - Apr 02 1977                 13
-    ## 3                   NA                      <NA>                 NA
-    ## 4                   12 Dec 20 1922 - Feb 28 1923                 10
-    ## 5                   12 Dec 20 1922 - Feb 28 1923                 10
-    ## 6                   12 Dec 20 1922 - Feb 28 1923                 10
-    ##                                data.homeWinStreakDates
-    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977
-    ## 2 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977
-    ## 3                                                 <NA>
-    ## 4 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ## 5 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ## 6 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ##   data.homeWinlessStreak data.homeWinlessStreakDates data.lossStreak
-    ## 1                     15   Dec 16 1939 - Mar 07 1940              12
-    ## 2                     15   Dec 16 1939 - Mar 07 1940              12
-    ## 3                     NA                        <NA>               5
-    ## 4                      9   Dec 11 1930 - Feb 03 1931               9
-    ## 5                      9   Dec 11 1930 - Feb 03 1931               9
-    ## 6                      9   Dec 11 1930 - Feb 03 1931               9
+    ##                               data.homeLossStreakDates data.homePointStreak
+    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000                   34
+    ## 2 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000                   34
+    ## 3                                                 <NA>                   NA
+    ## 4                            Jan 08 1931 - Feb 03 1931                   12
+    ## 5                            Jan 08 1931 - Feb 03 1931                   12
+    ## 6                            Jan 08 1931 - Feb 03 1931                   12
+    ##   data.homePointStreakDates data.homeWinStreak
+    ## 1 Nov 01 1976 - Apr 02 1977                 13
+    ## 2 Nov 01 1976 - Apr 02 1977                 13
+    ## 3                      <NA>                 NA
+    ## 4 Dec 20 1922 - Feb 28 1923                 10
+    ## 5 Dec 20 1922 - Feb 28 1923                 10
+    ## 6 Dec 20 1922 - Feb 28 1923                 10
+    ##                                data.homeWinStreakDates data.homeWinlessStreak
+    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977                     15
+    ## 2 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977                     15
+    ## 3                                                 <NA>                     NA
+    ## 4 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ## 5 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ## 6 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ##   data.homeWinlessStreakDates data.lossStreak
+    ## 1   Dec 16 1939 - Mar 07 1940              12
+    ## 2   Dec 16 1939 - Mar 07 1940              12
+    ## 3                        <NA>               5
+    ## 4   Dec 11 1930 - Feb 03 1931               9
+    ## 5   Dec 11 1930 - Feb 03 1931               9
+    ## 6   Dec 11 1930 - Feb 03 1931               9
     ##                                   data.lossStreakDates data.mostGameGoals
     ## 1                            Feb 13 1926 - Mar 13 1926                 16
     ## 2                            Feb 13 1926 - Mar 13 1926                 16
@@ -1980,97 +2456,83 @@ head(frch_seas_ttl_comb)
     ## 4 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
     ## 5 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
     ## 6 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
-    ##                                      data.mostGameGoalsDates
-    ## 1                               Mar 03 1920 - MTL 16 @ QBD 3
-    ## 2                               Mar 03 1920 - MTL 16 @ QBD 3
-    ## 3                               Dec 19 1917 - TAN 9 @ MWN 10
-    ## 4 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ## 5 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ## 6 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ##   data.mostGoals data.mostGoalsAgainst data.mostGoalsAgainstSeasons
-    ## 1            387                   295                 1983-84 (80)
-    ## 2            387                   295                 1983-84 (80)
-    ## 3             17                    37                 1917-18 (22)
-    ## 4            138                   144                 1934-35 (48)
-    ## 5            138                   144                 1934-35 (48)
-    ## 6            138                   144                 1934-35 (48)
-    ##   data.mostGoalsSeasons data.mostLosses
-    ## 1          1976-77 (80)              40
-    ## 2          1976-77 (80)              40
-    ## 3          1917-18 (22)               5
-    ## 4          1929-30 (44)              31
-    ## 5          1929-30 (44)              31
-    ## 6          1929-30 (44)              31
-    ##                     data.mostLossesSeasons data.mostPenaltyMinutes
-    ## 1 1983-84 (80), 2000-01 (82), 2017-18 (82)                    1847
-    ## 2 1983-84 (80), 2000-01 (82), 2017-18 (82)                    1847
-    ## 3                             1917-18 (22)                      27
-    ## 4                             1934-35 (48)                     619
-    ## 5                             1934-35 (48)                     619
-    ## 6                             1934-35 (48)                     619
-    ##   data.mostPenaltyMinutesSeasons data.mostPoints data.mostPointsSeasons
-    ## 1                   1995-96 (82)             132           1976-77 (80)
-    ## 2                   1995-96 (82)             132           1976-77 (80)
-    ## 3                   1917-18 (22)               2           1917-18 (22)
-    ## 4                   1926-27 (44)              64           1926-27 (44)
-    ## 5                   1926-27 (44)              64           1926-27 (44)
-    ## 6                   1926-27 (44)              64           1926-27 (44)
-    ##   data.mostShutouts   data.mostShutoutsSeasons data.mostTies
-    ## 1                22               1928-29 (44)            23
-    ## 2                22               1928-29 (44)            23
-    ## 3                 0               1917-18 (22)             0
-    ## 4                15 1925-26 (36), 1927-28 (44)            13
-    ## 5                15 1925-26 (36), 1927-28 (44)            13
-    ## 6                15 1925-26 (36), 1927-28 (44)            13
-    ##   data.mostTiesSeasons data.mostWins data.mostWinsSeasons data.pointStreak
-    ## 1         1962-63 (70)            60         1976-77 (80)               28
-    ## 2         1962-63 (70)            60         1976-77 (80)               28
-    ## 3         1917-18 (22)             1         1917-18 (22)               NA
-    ## 4         1928-29 (44)            30         1926-27 (44)               12
-    ## 5         1928-29 (44)            30         1926-27 (44)               12
-    ## 6         1928-29 (44)            30         1926-27 (44)               12
-    ##       data.pointStreakDates data.roadLossStreak  data.roadLossStreakDates
-    ## 1 Dec 18 1977 - Feb 23 1978                  10 Jan 16 1926 - Mar 13 1926
-    ## 2 Dec 18 1977 - Feb 23 1978                  10 Jan 16 1926 - Mar 13 1926
-    ## 3                      <NA>                   3 Dec 29 1917 - Jan 05 1918
-    ## 4 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ## 5 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ## 6 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ##   data.roadPointStreak data.roadPointStreakDates data.roadWinStreak
-    ## 1                   23 Nov 27 1974 - Mar 12 1975                  8
-    ## 2                   23 Nov 27 1974 - Mar 12 1975                  8
-    ## 3                   NA                      <NA>                 NA
-    ## 4                    8 Nov 18 1926 - Dec 28 1926                  5
-    ## 5                    8 Nov 18 1926 - Dec 28 1926                  5
-    ## 6                    8 Nov 18 1926 - Dec 28 1926                  5
-    ##                                data.roadWinStreakDates
-    ## 1 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
-    ## 2 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
-    ## 3                                                 <NA>
-    ## 4                            Feb 04 1920 - Mar 06 1920
-    ## 5                            Feb 04 1920 - Mar 06 1920
-    ## 6                            Feb 04 1920 - Mar 06 1920
-    ##   data.roadWinlessStreak
-    ## 1                     12
-    ## 2                     12
-    ## 3                     NA
-    ## 4                     17
-    ## 5                     17
-    ## 6                     17
-    ##                            data.roadWinlessStreakDates data.winStreak
-    ## 1 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951             12
-    ## 2 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951             12
-    ## 3                                                 <NA>             NA
-    ## 4                            Dec 15 1932 - Mar 18 1933              9
-    ## 5                            Dec 15 1932 - Mar 18 1933              9
-    ## 6                            Dec 15 1932 - Mar 18 1933              9
-    ##         data.winStreakDates data.winlessStreak
-    ## 1 Jan 06 1968 - Feb 03 1968                 12
-    ## 2 Jan 06 1968 - Feb 03 1968                 12
-    ## 3                      <NA>                  5
-    ## 4 Feb 11 1920 - Mar 08 1920                 12
-    ## 5 Feb 11 1920 - Mar 08 1920                 12
-    ## 6 Feb 11 1920 - Mar 08 1920                 12
+    ##                                      data.mostGameGoalsDates data.mostGoals
+    ## 1                               Mar 03 1920 - MTL 16 @ QBD 3            387
+    ## 2                               Mar 03 1920 - MTL 16 @ QBD 3            387
+    ## 3                               Dec 19 1917 - TAN 9 @ MWN 10             17
+    ## 4 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ## 5 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ## 6 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ##   data.mostGoalsAgainst data.mostGoalsAgainstSeasons data.mostGoalsSeasons
+    ## 1                   295                 1983-84 (80)          1976-77 (80)
+    ## 2                   295                 1983-84 (80)          1976-77 (80)
+    ## 3                    37                 1917-18 (22)          1917-18 (22)
+    ## 4                   144                 1934-35 (48)          1929-30 (44)
+    ## 5                   144                 1934-35 (48)          1929-30 (44)
+    ## 6                   144                 1934-35 (48)          1929-30 (44)
+    ##   data.mostLosses                   data.mostLossesSeasons
+    ## 1              40 1983-84 (80), 2000-01 (82), 2017-18 (82)
+    ## 2              40 1983-84 (80), 2000-01 (82), 2017-18 (82)
+    ## 3               5                             1917-18 (22)
+    ## 4              31                             1934-35 (48)
+    ## 5              31                             1934-35 (48)
+    ## 6              31                             1934-35 (48)
+    ##   data.mostPenaltyMinutes data.mostPenaltyMinutesSeasons data.mostPoints
+    ## 1                    1847                   1995-96 (82)             132
+    ## 2                    1847                   1995-96 (82)             132
+    ## 3                      27                   1917-18 (22)               2
+    ## 4                     619                   1926-27 (44)              64
+    ## 5                     619                   1926-27 (44)              64
+    ## 6                     619                   1926-27 (44)              64
+    ##   data.mostPointsSeasons data.mostShutouts   data.mostShutoutsSeasons
+    ## 1           1976-77 (80)                22               1928-29 (44)
+    ## 2           1976-77 (80)                22               1928-29 (44)
+    ## 3           1917-18 (22)                 0               1917-18 (22)
+    ## 4           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ## 5           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ## 6           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ##   data.mostTies data.mostTiesSeasons data.mostWins data.mostWinsSeasons
+    ## 1            23         1962-63 (70)            60         1976-77 (80)
+    ## 2            23         1962-63 (70)            60         1976-77 (80)
+    ## 3             0         1917-18 (22)             1         1917-18 (22)
+    ## 4            13         1928-29 (44)            30         1926-27 (44)
+    ## 5            13         1928-29 (44)            30         1926-27 (44)
+    ## 6            13         1928-29 (44)            30         1926-27 (44)
+    ##   data.pointStreak     data.pointStreakDates data.roadLossStreak
+    ## 1               28 Dec 18 1977 - Feb 23 1978                  10
+    ## 2               28 Dec 18 1977 - Feb 23 1978                  10
+    ## 3               NA                      <NA>                   3
+    ## 4               12 Jan 24 1928 - Feb 25 1928                   7
+    ## 5               12 Jan 24 1928 - Feb 25 1928                   7
+    ## 6               12 Jan 24 1928 - Feb 25 1928                   7
+    ##    data.roadLossStreakDates data.roadPointStreak data.roadPointStreakDates
+    ## 1 Jan 16 1926 - Mar 13 1926                   23 Nov 27 1974 - Mar 12 1975
+    ## 2 Jan 16 1926 - Mar 13 1926                   23 Nov 27 1974 - Mar 12 1975
+    ## 3 Dec 29 1917 - Jan 05 1918                   NA                      <NA>
+    ## 4 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ## 5 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ## 6 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ##   data.roadWinStreak                              data.roadWinStreakDates
+    ## 1                  8 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
+    ## 2                  8 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
+    ## 3                 NA                                                 <NA>
+    ## 4                  5                            Feb 04 1920 - Mar 06 1920
+    ## 5                  5                            Feb 04 1920 - Mar 06 1920
+    ## 6                  5                            Feb 04 1920 - Mar 06 1920
+    ##   data.roadWinlessStreak                          data.roadWinlessStreakDates
+    ## 1                     12 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951
+    ## 2                     12 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951
+    ## 3                     NA                                                 <NA>
+    ## 4                     17                            Dec 15 1932 - Mar 18 1933
+    ## 5                     17                            Dec 15 1932 - Mar 18 1933
+    ## 6                     17                            Dec 15 1932 - Mar 18 1933
+    ##   data.winStreak       data.winStreakDates data.winlessStreak
+    ## 1             12 Jan 06 1968 - Feb 03 1968                 12
+    ## 2             12 Jan 06 1968 - Feb 03 1968                 12
+    ## 3             NA                      <NA>                  5
+    ## 4              9 Feb 11 1920 - Mar 08 1920                 12
+    ## 5              9 Feb 11 1920 - Mar 08 1920                 12
+    ## 6              9 Feb 11 1920 - Mar 08 1920                 12
     ##                                data.winlessStreakDates total.y
     ## 1 Feb 13 1926 - Mar 13 1926, Nov 28 1935 - Dec 29 1935      39
     ## 2 Feb 13 1926 - Mar 13 1926, Nov 28 1935 - Dec 29 1935      39
@@ -2078,62 +2540,55 @@ head(frch_seas_ttl_comb)
     ## 4                            Dec 11 1928 - Jan 10 1929      39
     ## 5                            Dec 11 1928 - Jan 10 1929      39
     ## 6                            Dec 11 1928 - Jan 10 1929      39
-    ##   data.activeFranchise data.firstSeasonId.y data.gameTypeId
-    ## 1                    1             19171918               3
-    ## 2                    1             19171918               2
-    ## 3                    0             19171918               2
-    ## 4                    0             19171918               3
-    ## 5                    0             19171918               2
-    ## 6                    0             19341935               2
-    ##   data.gamesPlayed data.goalsAgainst data.goalsFor data.homeLosses
-    ## 1              773              1959          2306             133
-    ## 2             6787             18260         21791             881
-    ## 3                6                37            17               2
-    ## 4               41                84            91               7
-    ## 5              542              1333          1458              81
-    ## 6               48               144            86              14
-    ##   data.homeOvertimeLosses data.homeTies data.homeWins data.lastSeasonId.y
-    ## 1                       0             3           258                  NA
-    ## 2                      95           381          2038                  NA
-    ## 3                      NA             0             1            19171918
-    ## 4                      NA             4             6            19331934
-    ## 5                      NA            30           160            19331934
-    ## 6                      NA             3             7            19341935
-    ##   data.losses data.overtimeLosses data.penaltyMinutes data.pointPctg
-    ## 1         321                   0               12150         0.0000
-    ## 2        2302                 175               87484         0.5863
-    ## 3           5                  NA                  27         0.1667
-    ## 4          17                  NA                 497         0.0000
-    ## 5         221                  NA                5667         0.5341
-    ## 6          31                  NA                 408         0.2917
-    ##   data.points data.roadLosses data.roadOvertimeLosses data.roadTies
-    ## 1           0             188                       0             5
-    ## 2        7958            1421                      80           456
-    ## 3           2               3                      NA             0
-    ## 4           0              10                      NA             2
-    ## 5         579             140                      NA            33
-    ## 6          28              17                      NA             3
-    ##   data.roadWins data.shootoutLosses data.shootoutWins data.shutouts
-    ## 1           186                   0                 0            68
-    ## 2          1435                  66                69           543
-    ## 3             0                   0                 0             0
-    ## 4            12                   0                 0             9
-    ## 5            98                   0                 0            91
-    ## 6             4                   0                 0             3
-    ##   data.teamId          data.teamName data.ties data.triCode data.wins
-    ## 1           8     Montréal Canadiens         8          MTL       444
-    ## 2           8     Montréal Canadiens       837          MTL      3473
-    ## 3          41     Montreal Wanderers         0          MWN         1
-    ## 4          36 Ottawa Senators (1917)         6          SEN        18
-    ## 5          36 Ottawa Senators (1917)        63          SEN       258
-    ## 6          45       St. Louis Eagles         6          SLE        11
-    ##   total
-    ## 1   105
-    ## 2   105
-    ## 3   105
-    ## 4   105
-    ## 5   105
-    ## 6   105
+    ##   data.activeFranchise data.firstSeasonId.y data.gameTypeId data.gamesPlayed
+    ## 1                    1             19171918               3              773
+    ## 2                    1             19171918               2             6787
+    ## 3                    0             19171918               2                6
+    ## 4                    0             19171918               3               41
+    ## 5                    0             19171918               2              542
+    ## 6                    0             19341935               2               48
+    ##   data.goalsAgainst data.goalsFor data.homeLosses data.homeOvertimeLosses
+    ## 1              1959          2306             133                       0
+    ## 2             18260         21791             881                      95
+    ## 3                37            17               2                      NA
+    ## 4                84            91               7                      NA
+    ## 5              1333          1458              81                      NA
+    ## 6               144            86              14                      NA
+    ##   data.homeTies data.homeWins data.lastSeasonId.y data.losses
+    ## 1             3           258                  NA         321
+    ## 2           381          2038                  NA        2302
+    ## 3             0             1            19171918           5
+    ## 4             4             6            19331934          17
+    ## 5            30           160            19331934         221
+    ## 6             3             7            19341935          31
+    ##   data.overtimeLosses data.penaltyMinutes data.pointPctg data.points
+    ## 1                   0               12150         0.0000           0
+    ## 2                 175               87484         0.5863        7958
+    ## 3                  NA                  27         0.1667           2
+    ## 4                  NA                 497         0.0000           0
+    ## 5                  NA                5667         0.5341         579
+    ## 6                  NA                 408         0.2917          28
+    ##   data.roadLosses data.roadOvertimeLosses data.roadTies data.roadWins
+    ## 1             188                       0             5           186
+    ## 2            1421                      80           456          1435
+    ## 3               3                      NA             0             0
+    ## 4              10                      NA             2            12
+    ## 5             140                      NA            33            98
+    ## 6              17                      NA             3             4
+    ##   data.shootoutLosses data.shootoutWins data.shutouts data.teamId
+    ## 1                   0                 0            68           8
+    ## 2                  66                69           543           8
+    ## 3                   0                 0             0          41
+    ## 4                   0                 0             9          36
+    ## 5                   0                 0            91          36
+    ## 6                   0                 0             3          45
+    ##            data.teamName data.ties data.triCode data.wins total
+    ## 1     Montréal Canadiens         8          MTL       444   105
+    ## 2     Montréal Canadiens       837          MTL      3473   105
+    ## 3     Montreal Wanderers         0          MWN         1   105
+    ## 4 Ottawa Senators (1917)         6          SEN        18   105
+    ## 5 Ottawa Senators (1917)        63          SEN       258   105
+    ## 6       St. Louis Eagles         6          SLE        11   105
 
 ### New variables
 
@@ -2163,55 +2618,48 @@ frch_seas_ttl_comb <-mutate(frch_seas_ttl_comb,data.win_pct,
 head(frch_seas_ttl_comb) 
 ```
 
-    ##   data.franchiseId data.firstSeasonId.x      data.fullName
-    ## 1                1             19171918 Montréal Canadiens
-    ## 2                1             19171918 Montréal Canadiens
-    ## 3                2             19171918 Montreal Wanderers
-    ## 4                3             19171918   St. Louis Eagles
-    ## 5                3             19171918   St. Louis Eagles
-    ## 6                3             19171918   St. Louis Eagles
-    ##   data.lastSeasonId.x data.mostRecentTeamId data.teamAbbrev
-    ## 1                  NA                     8             MTL
-    ## 2                  NA                     8             MTL
-    ## 3            19171918                    41             MWN
-    ## 4            19341935                    45             SLE
-    ## 5            19341935                    45             SLE
-    ## 6            19341935                    45             SLE
-    ##   data.teamCommonName data.teamPlaceName total.x data.fewestGoals
-    ## 1           Canadiens           Montréal      39              155
-    ## 2           Canadiens           Montréal      39              155
-    ## 3           Wanderers           Montreal      39               NA
-    ## 4              Eagles          St. Louis      39               NA
-    ## 5              Eagles          St. Louis      39               NA
-    ## 6              Eagles          St. Louis      39               NA
-    ##   data.fewestGoalsAgainst data.fewestGoalsAgainstSeasons
-    ## 1                     131                   1955-56 (70)
-    ## 2                     131                   1955-56 (70)
-    ## 3                      NA                           <NA>
-    ## 4                      NA                           <NA>
-    ## 5                      NA                           <NA>
-    ## 6                      NA                           <NA>
-    ##   data.fewestGoalsSeasons data.fewestLosses data.fewestLossesSeasons
-    ## 1            1952-53 (70)                 8             1976-77 (80)
-    ## 2            1952-53 (70)                 8             1976-77 (80)
-    ## 3                    <NA>                NA                     <NA>
-    ## 4                    <NA>                NA                     <NA>
-    ## 5                    <NA>                NA                     <NA>
-    ## 6                    <NA>                NA                     <NA>
-    ##   data.fewestPoints data.fewestPointsSeasons data.fewestTies
-    ## 1                65             1950-51 (70)               5
-    ## 2                65             1950-51 (70)               5
-    ## 3                NA                     <NA>              NA
-    ## 4                NA                     <NA>              NA
-    ## 5                NA                     <NA>              NA
-    ## 6                NA                     <NA>              NA
-    ##   data.fewestTiesSeasons data.fewestWins data.fewestWinsSeasons
-    ## 1           1983-84 (80)              25           1950-51 (70)
-    ## 2           1983-84 (80)              25           1950-51 (70)
-    ## 3                   <NA>              NA                   <NA>
-    ## 4                   <NA>              NA                   <NA>
-    ## 5                   <NA>              NA                   <NA>
-    ## 6                   <NA>              NA                   <NA>
+    ##   data.franchiseId data.firstSeasonId.x      data.fullName data.lastSeasonId.x
+    ## 1                1             19171918 Montréal Canadiens                  NA
+    ## 2                1             19171918 Montréal Canadiens                  NA
+    ## 3                2             19171918 Montreal Wanderers            19171918
+    ## 4                3             19171918   St. Louis Eagles            19341935
+    ## 5                3             19171918   St. Louis Eagles            19341935
+    ## 6                3             19171918   St. Louis Eagles            19341935
+    ##   data.mostRecentTeamId data.teamAbbrev data.teamCommonName data.teamPlaceName
+    ## 1                     8             MTL           Canadiens           Montréal
+    ## 2                     8             MTL           Canadiens           Montréal
+    ## 3                    41             MWN           Wanderers           Montreal
+    ## 4                    45             SLE              Eagles          St. Louis
+    ## 5                    45             SLE              Eagles          St. Louis
+    ## 6                    45             SLE              Eagles          St. Louis
+    ##   total.x data.fewestGoals data.fewestGoalsAgainst
+    ## 1      39              155                     131
+    ## 2      39              155                     131
+    ## 3      39               NA                      NA
+    ## 4      39               NA                      NA
+    ## 5      39               NA                      NA
+    ## 6      39               NA                      NA
+    ##   data.fewestGoalsAgainstSeasons data.fewestGoalsSeasons data.fewestLosses
+    ## 1                   1955-56 (70)            1952-53 (70)                 8
+    ## 2                   1955-56 (70)            1952-53 (70)                 8
+    ## 3                           <NA>                    <NA>                NA
+    ## 4                           <NA>                    <NA>                NA
+    ## 5                           <NA>                    <NA>                NA
+    ## 6                           <NA>                    <NA>                NA
+    ##   data.fewestLossesSeasons data.fewestPoints data.fewestPointsSeasons
+    ## 1             1976-77 (80)                65             1950-51 (70)
+    ## 2             1976-77 (80)                65             1950-51 (70)
+    ## 3                     <NA>                NA                     <NA>
+    ## 4                     <NA>                NA                     <NA>
+    ## 5                     <NA>                NA                     <NA>
+    ## 6                     <NA>                NA                     <NA>
+    ##   data.fewestTies data.fewestTiesSeasons data.fewestWins data.fewestWinsSeasons
+    ## 1               5           1983-84 (80)              25           1950-51 (70)
+    ## 2               5           1983-84 (80)              25           1950-51 (70)
+    ## 3              NA                   <NA>              NA                   <NA>
+    ## 4              NA                   <NA>              NA                   <NA>
+    ## 5              NA                   <NA>              NA                   <NA>
+    ## 6              NA                   <NA>              NA                   <NA>
     ##   data.franchiseName data.homeLossStreak
     ## 1 Montréal Canadiens                   7
     ## 2 Montréal Canadiens                   7
@@ -2219,34 +2667,34 @@ head(frch_seas_ttl_comb)
     ## 4   St. Louis Eagles                   5
     ## 5   St. Louis Eagles                   5
     ## 6   St. Louis Eagles                   5
-    ##                               data.homeLossStreakDates
-    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000
-    ## 2 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000
-    ## 3                                                 <NA>
-    ## 4                            Jan 08 1931 - Feb 03 1931
-    ## 5                            Jan 08 1931 - Feb 03 1931
-    ## 6                            Jan 08 1931 - Feb 03 1931
-    ##   data.homePointStreak data.homePointStreakDates data.homeWinStreak
-    ## 1                   34 Nov 01 1976 - Apr 02 1977                 13
-    ## 2                   34 Nov 01 1976 - Apr 02 1977                 13
-    ## 3                   NA                      <NA>                 NA
-    ## 4                   12 Dec 20 1922 - Feb 28 1923                 10
-    ## 5                   12 Dec 20 1922 - Feb 28 1923                 10
-    ## 6                   12 Dec 20 1922 - Feb 28 1923                 10
-    ##                                data.homeWinStreakDates
-    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977
-    ## 2 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977
-    ## 3                                                 <NA>
-    ## 4 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ## 5 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ## 6 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926
-    ##   data.homeWinlessStreak data.homeWinlessStreakDates data.lossStreak
-    ## 1                     15   Dec 16 1939 - Mar 07 1940              12
-    ## 2                     15   Dec 16 1939 - Mar 07 1940              12
-    ## 3                     NA                        <NA>               5
-    ## 4                      9   Dec 11 1930 - Feb 03 1931               9
-    ## 5                      9   Dec 11 1930 - Feb 03 1931               9
-    ## 6                      9   Dec 11 1930 - Feb 03 1931               9
+    ##                               data.homeLossStreakDates data.homePointStreak
+    ## 1 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000                   34
+    ## 2 Dec 16 1939 - Jan 18 1940, Oct 28 2000 - Nov 25 2000                   34
+    ## 3                                                 <NA>                   NA
+    ## 4                            Jan 08 1931 - Feb 03 1931                   12
+    ## 5                            Jan 08 1931 - Feb 03 1931                   12
+    ## 6                            Jan 08 1931 - Feb 03 1931                   12
+    ##   data.homePointStreakDates data.homeWinStreak
+    ## 1 Nov 01 1976 - Apr 02 1977                 13
+    ## 2 Nov 01 1976 - Apr 02 1977                 13
+    ## 3                      <NA>                 NA
+    ## 4 Dec 20 1922 - Feb 28 1923                 10
+    ## 5 Dec 20 1922 - Feb 28 1923                 10
+    ## 6 Dec 20 1922 - Feb 28 1923                 10
+    ##                                data.homeWinStreakDates data.homeWinlessStreak
+    ## 1 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977                     15
+    ## 2 Nov 02 1943 - Jan 08 1944, Jan 30 1977 - Mar 26 1977                     15
+    ## 3                                                 <NA>                     NA
+    ## 4 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ## 5 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ## 6 Dec 30 1922 - Feb 28 1923, Nov 28 1925 - Jan 28 1926                      9
+    ##   data.homeWinlessStreakDates data.lossStreak
+    ## 1   Dec 16 1939 - Mar 07 1940              12
+    ## 2   Dec 16 1939 - Mar 07 1940              12
+    ## 3                        <NA>               5
+    ## 4   Dec 11 1930 - Feb 03 1931               9
+    ## 5   Dec 11 1930 - Feb 03 1931               9
+    ## 6   Dec 11 1930 - Feb 03 1931               9
     ##                                   data.lossStreakDates data.mostGameGoals
     ## 1                            Feb 13 1926 - Mar 13 1926                 16
     ## 2                            Feb 13 1926 - Mar 13 1926                 16
@@ -2254,97 +2702,83 @@ head(frch_seas_ttl_comb)
     ## 4 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
     ## 5 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
     ## 6 Dec 06 1930 - Jan 01 1931, Jan 08 1931 - Feb 03 1931                 12
-    ##                                      data.mostGameGoalsDates
-    ## 1                               Mar 03 1920 - MTL 16 @ QBD 3
-    ## 2                               Mar 03 1920 - MTL 16 @ QBD 3
-    ## 3                               Dec 19 1917 - TAN 9 @ MWN 10
-    ## 4 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ## 5 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ## 6 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12
-    ##   data.mostGoals data.mostGoalsAgainst data.mostGoalsAgainstSeasons
-    ## 1            387                   295                 1983-84 (80)
-    ## 2            387                   295                 1983-84 (80)
-    ## 3             17                    37                 1917-18 (22)
-    ## 4            138                   144                 1934-35 (48)
-    ## 5            138                   144                 1934-35 (48)
-    ## 6            138                   144                 1934-35 (48)
-    ##   data.mostGoalsSeasons data.mostLosses
-    ## 1          1976-77 (80)              40
-    ## 2          1976-77 (80)              40
-    ## 3          1917-18 (22)               5
-    ## 4          1929-30 (44)              31
-    ## 5          1929-30 (44)              31
-    ## 6          1929-30 (44)              31
-    ##                     data.mostLossesSeasons data.mostPenaltyMinutes
-    ## 1 1983-84 (80), 2000-01 (82), 2017-18 (82)                    1847
-    ## 2 1983-84 (80), 2000-01 (82), 2017-18 (82)                    1847
-    ## 3                             1917-18 (22)                      27
-    ## 4                             1934-35 (48)                     619
-    ## 5                             1934-35 (48)                     619
-    ## 6                             1934-35 (48)                     619
-    ##   data.mostPenaltyMinutesSeasons data.mostPoints data.mostPointsSeasons
-    ## 1                   1995-96 (82)             132           1976-77 (80)
-    ## 2                   1995-96 (82)             132           1976-77 (80)
-    ## 3                   1917-18 (22)               2           1917-18 (22)
-    ## 4                   1926-27 (44)              64           1926-27 (44)
-    ## 5                   1926-27 (44)              64           1926-27 (44)
-    ## 6                   1926-27 (44)              64           1926-27 (44)
-    ##   data.mostShutouts   data.mostShutoutsSeasons data.mostTies
-    ## 1                22               1928-29 (44)            23
-    ## 2                22               1928-29 (44)            23
-    ## 3                 0               1917-18 (22)             0
-    ## 4                15 1925-26 (36), 1927-28 (44)            13
-    ## 5                15 1925-26 (36), 1927-28 (44)            13
-    ## 6                15 1925-26 (36), 1927-28 (44)            13
-    ##   data.mostTiesSeasons data.mostWins data.mostWinsSeasons data.pointStreak
-    ## 1         1962-63 (70)            60         1976-77 (80)               28
-    ## 2         1962-63 (70)            60         1976-77 (80)               28
-    ## 3         1917-18 (22)             1         1917-18 (22)               NA
-    ## 4         1928-29 (44)            30         1926-27 (44)               12
-    ## 5         1928-29 (44)            30         1926-27 (44)               12
-    ## 6         1928-29 (44)            30         1926-27 (44)               12
-    ##       data.pointStreakDates data.roadLossStreak  data.roadLossStreakDates
-    ## 1 Dec 18 1977 - Feb 23 1978                  10 Jan 16 1926 - Mar 13 1926
-    ## 2 Dec 18 1977 - Feb 23 1978                  10 Jan 16 1926 - Mar 13 1926
-    ## 3                      <NA>                   3 Dec 29 1917 - Jan 05 1918
-    ## 4 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ## 5 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ## 6 Jan 24 1928 - Feb 25 1928                   7 Nov 17 1934 - Dec 09 1934
-    ##   data.roadPointStreak data.roadPointStreakDates data.roadWinStreak
-    ## 1                   23 Nov 27 1974 - Mar 12 1975                  8
-    ## 2                   23 Nov 27 1974 - Mar 12 1975                  8
-    ## 3                   NA                      <NA>                 NA
-    ## 4                    8 Nov 18 1926 - Dec 28 1926                  5
-    ## 5                    8 Nov 18 1926 - Dec 28 1926                  5
-    ## 6                    8 Nov 18 1926 - Dec 28 1926                  5
-    ##                                data.roadWinStreakDates
-    ## 1 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
-    ## 2 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
-    ## 3                                                 <NA>
-    ## 4                            Feb 04 1920 - Mar 06 1920
-    ## 5                            Feb 04 1920 - Mar 06 1920
-    ## 6                            Feb 04 1920 - Mar 06 1920
-    ##   data.roadWinlessStreak
-    ## 1                     12
-    ## 2                     12
-    ## 3                     NA
-    ## 4                     17
-    ## 5                     17
-    ## 6                     17
-    ##                            data.roadWinlessStreakDates data.winStreak
-    ## 1 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951             12
-    ## 2 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951             12
-    ## 3                                                 <NA>             NA
-    ## 4                            Dec 15 1932 - Mar 18 1933              9
-    ## 5                            Dec 15 1932 - Mar 18 1933              9
-    ## 6                            Dec 15 1932 - Mar 18 1933              9
-    ##         data.winStreakDates data.winlessStreak
-    ## 1 Jan 06 1968 - Feb 03 1968                 12
-    ## 2 Jan 06 1968 - Feb 03 1968                 12
-    ## 3                      <NA>                  5
-    ## 4 Feb 11 1920 - Mar 08 1920                 12
-    ## 5 Feb 11 1920 - Mar 08 1920                 12
-    ## 6 Feb 11 1920 - Mar 08 1920                 12
+    ##                                      data.mostGameGoalsDates data.mostGoals
+    ## 1                               Mar 03 1920 - MTL 16 @ QBD 3            387
+    ## 2                               Mar 03 1920 - MTL 16 @ QBD 3            387
+    ## 3                               Dec 19 1917 - TAN 9 @ MWN 10             17
+    ## 4 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ## 5 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ## 6 Jan 21 1920 - QBD 1 @ SEN 12, Mar 07 1921 - HAM 5 @ SEN 12            138
+    ##   data.mostGoalsAgainst data.mostGoalsAgainstSeasons data.mostGoalsSeasons
+    ## 1                   295                 1983-84 (80)          1976-77 (80)
+    ## 2                   295                 1983-84 (80)          1976-77 (80)
+    ## 3                    37                 1917-18 (22)          1917-18 (22)
+    ## 4                   144                 1934-35 (48)          1929-30 (44)
+    ## 5                   144                 1934-35 (48)          1929-30 (44)
+    ## 6                   144                 1934-35 (48)          1929-30 (44)
+    ##   data.mostLosses                   data.mostLossesSeasons
+    ## 1              40 1983-84 (80), 2000-01 (82), 2017-18 (82)
+    ## 2              40 1983-84 (80), 2000-01 (82), 2017-18 (82)
+    ## 3               5                             1917-18 (22)
+    ## 4              31                             1934-35 (48)
+    ## 5              31                             1934-35 (48)
+    ## 6              31                             1934-35 (48)
+    ##   data.mostPenaltyMinutes data.mostPenaltyMinutesSeasons data.mostPoints
+    ## 1                    1847                   1995-96 (82)             132
+    ## 2                    1847                   1995-96 (82)             132
+    ## 3                      27                   1917-18 (22)               2
+    ## 4                     619                   1926-27 (44)              64
+    ## 5                     619                   1926-27 (44)              64
+    ## 6                     619                   1926-27 (44)              64
+    ##   data.mostPointsSeasons data.mostShutouts   data.mostShutoutsSeasons
+    ## 1           1976-77 (80)                22               1928-29 (44)
+    ## 2           1976-77 (80)                22               1928-29 (44)
+    ## 3           1917-18 (22)                 0               1917-18 (22)
+    ## 4           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ## 5           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ## 6           1926-27 (44)                15 1925-26 (36), 1927-28 (44)
+    ##   data.mostTies data.mostTiesSeasons data.mostWins data.mostWinsSeasons
+    ## 1            23         1962-63 (70)            60         1976-77 (80)
+    ## 2            23         1962-63 (70)            60         1976-77 (80)
+    ## 3             0         1917-18 (22)             1         1917-18 (22)
+    ## 4            13         1928-29 (44)            30         1926-27 (44)
+    ## 5            13         1928-29 (44)            30         1926-27 (44)
+    ## 6            13         1928-29 (44)            30         1926-27 (44)
+    ##   data.pointStreak     data.pointStreakDates data.roadLossStreak
+    ## 1               28 Dec 18 1977 - Feb 23 1978                  10
+    ## 2               28 Dec 18 1977 - Feb 23 1978                  10
+    ## 3               NA                      <NA>                   3
+    ## 4               12 Jan 24 1928 - Feb 25 1928                   7
+    ## 5               12 Jan 24 1928 - Feb 25 1928                   7
+    ## 6               12 Jan 24 1928 - Feb 25 1928                   7
+    ##    data.roadLossStreakDates data.roadPointStreak data.roadPointStreakDates
+    ## 1 Jan 16 1926 - Mar 13 1926                   23 Nov 27 1974 - Mar 12 1975
+    ## 2 Jan 16 1926 - Mar 13 1926                   23 Nov 27 1974 - Mar 12 1975
+    ## 3 Dec 29 1917 - Jan 05 1918                   NA                      <NA>
+    ## 4 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ## 5 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ## 6 Nov 17 1934 - Dec 09 1934                    8 Nov 18 1926 - Dec 28 1926
+    ##   data.roadWinStreak                              data.roadWinStreakDates
+    ## 1                  8 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
+    ## 2                  8 Dec 18 1977 - Jan 18 1978, Jan 21 1982 - Feb 21 1982
+    ## 3                 NA                                                 <NA>
+    ## 4                  5                            Feb 04 1920 - Mar 06 1920
+    ## 5                  5                            Feb 04 1920 - Mar 06 1920
+    ## 6                  5                            Feb 04 1920 - Mar 06 1920
+    ##   data.roadWinlessStreak                          data.roadWinlessStreakDates
+    ## 1                     12 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951
+    ## 2                     12 Nov 26 1933 - Jan 28 1934, Oct 20 1951 - Dec 13 1951
+    ## 3                     NA                                                 <NA>
+    ## 4                     17                            Dec 15 1932 - Mar 18 1933
+    ## 5                     17                            Dec 15 1932 - Mar 18 1933
+    ## 6                     17                            Dec 15 1932 - Mar 18 1933
+    ##   data.winStreak       data.winStreakDates data.winlessStreak
+    ## 1             12 Jan 06 1968 - Feb 03 1968                 12
+    ## 2             12 Jan 06 1968 - Feb 03 1968                 12
+    ## 3             NA                      <NA>                  5
+    ## 4              9 Feb 11 1920 - Mar 08 1920                 12
+    ## 5              9 Feb 11 1920 - Mar 08 1920                 12
+    ## 6              9 Feb 11 1920 - Mar 08 1920                 12
     ##                                data.winlessStreakDates total.y
     ## 1 Feb 13 1926 - Mar 13 1926, Nov 28 1935 - Dec 29 1935      39
     ## 2 Feb 13 1926 - Mar 13 1926, Nov 28 1935 - Dec 29 1935      39
@@ -2352,62 +2786,62 @@ head(frch_seas_ttl_comb)
     ## 4                            Dec 11 1928 - Jan 10 1929      39
     ## 5                            Dec 11 1928 - Jan 10 1929      39
     ## 6                            Dec 11 1928 - Jan 10 1929      39
-    ##   data.activeFranchise data.firstSeasonId.y data.gameTypeId
-    ## 1                    1             19171918               3
-    ## 2                    1             19171918               2
-    ## 3                    0             19171918               2
-    ## 4                    0             19171918               3
-    ## 5                    0             19171918               2
-    ## 6                    0             19341935               2
-    ##   data.gamesPlayed data.goalsAgainst data.goalsFor data.homeLosses
-    ## 1              773              1959          2306             133
-    ## 2             6787             18260         21791             881
-    ## 3                6                37            17               2
-    ## 4               41                84            91               7
-    ## 5              542              1333          1458              81
-    ## 6               48               144            86              14
-    ##   data.homeOvertimeLosses data.homeTies data.homeWins data.lastSeasonId.y
-    ## 1                       0             3           258                  NA
-    ## 2                      95           381          2038                  NA
-    ## 3                      NA             0             1            19171918
-    ## 4                      NA             4             6            19331934
-    ## 5                      NA            30           160            19331934
-    ## 6                      NA             3             7            19341935
-    ##   data.losses data.overtimeLosses data.penaltyMinutes data.pointPctg
-    ## 1         321                   0               12150         0.0000
-    ## 2        2302                 175               87484         0.5863
-    ## 3           5                  NA                  27         0.1667
-    ## 4          17                  NA                 497         0.0000
-    ## 5         221                  NA                5667         0.5341
-    ## 6          31                  NA                 408         0.2917
-    ##   data.points data.roadLosses data.roadOvertimeLosses data.roadTies
-    ## 1           0             188                       0             5
-    ## 2        7958            1421                      80           456
-    ## 3           2               3                      NA             0
-    ## 4           0              10                      NA             2
-    ## 5         579             140                      NA            33
-    ## 6          28              17                      NA             3
-    ##   data.roadWins data.shootoutLosses data.shootoutWins data.shutouts
-    ## 1           186                   0                 0            68
-    ## 2          1435                  66                69           543
-    ## 3             0                   0                 0             0
-    ## 4            12                   0                 0             9
-    ## 5            98                   0                 0            91
-    ## 6             4                   0                 0             3
-    ##   data.teamId          data.teamName data.ties data.triCode data.wins
-    ## 1           8     Montréal Canadiens         8          MTL       444
-    ## 2           8     Montréal Canadiens       837          MTL      3473
-    ## 3          41     Montreal Wanderers         0          MWN         1
-    ## 4          36 Ottawa Senators (1917)         6          SEN        18
-    ## 5          36 Ottawa Senators (1917)        63          SEN       258
-    ## 6          45       St. Louis Eagles         6          SLE        11
-    ##   total data.win_pct data.mgoal_level data.hwin_level
-    ## 1   105         0.33             high         100-300
-    ## 2   105         0.30             high       1000-2500
-    ## 3   105         0.17              low           0-100
-    ## 4   105         0.15          low-mid           0-100
-    ## 5   105         0.30          low-mid         100-300
-    ## 6   105         0.15          low-mid           0-100
+    ##   data.activeFranchise data.firstSeasonId.y data.gameTypeId data.gamesPlayed
+    ## 1                    1             19171918               3              773
+    ## 2                    1             19171918               2             6787
+    ## 3                    0             19171918               2                6
+    ## 4                    0             19171918               3               41
+    ## 5                    0             19171918               2              542
+    ## 6                    0             19341935               2               48
+    ##   data.goalsAgainst data.goalsFor data.homeLosses data.homeOvertimeLosses
+    ## 1              1959          2306             133                       0
+    ## 2             18260         21791             881                      95
+    ## 3                37            17               2                      NA
+    ## 4                84            91               7                      NA
+    ## 5              1333          1458              81                      NA
+    ## 6               144            86              14                      NA
+    ##   data.homeTies data.homeWins data.lastSeasonId.y data.losses
+    ## 1             3           258                  NA         321
+    ## 2           381          2038                  NA        2302
+    ## 3             0             1            19171918           5
+    ## 4             4             6            19331934          17
+    ## 5            30           160            19331934         221
+    ## 6             3             7            19341935          31
+    ##   data.overtimeLosses data.penaltyMinutes data.pointPctg data.points
+    ## 1                   0               12150         0.0000           0
+    ## 2                 175               87484         0.5863        7958
+    ## 3                  NA                  27         0.1667           2
+    ## 4                  NA                 497         0.0000           0
+    ## 5                  NA                5667         0.5341         579
+    ## 6                  NA                 408         0.2917          28
+    ##   data.roadLosses data.roadOvertimeLosses data.roadTies data.roadWins
+    ## 1             188                       0             5           186
+    ## 2            1421                      80           456          1435
+    ## 3               3                      NA             0             0
+    ## 4              10                      NA             2            12
+    ## 5             140                      NA            33            98
+    ## 6              17                      NA             3             4
+    ##   data.shootoutLosses data.shootoutWins data.shutouts data.teamId
+    ## 1                   0                 0            68           8
+    ## 2                  66                69           543           8
+    ## 3                   0                 0             0          41
+    ## 4                   0                 0             9          36
+    ## 5                   0                 0            91          36
+    ## 6                   0                 0             3          45
+    ##            data.teamName data.ties data.triCode data.wins total data.win_pct
+    ## 1     Montréal Canadiens         8          MTL       444   105         0.33
+    ## 2     Montréal Canadiens       837          MTL      3473   105         0.30
+    ## 3     Montreal Wanderers         0          MWN         1   105         0.17
+    ## 4 Ottawa Senators (1917)         6          SEN        18   105         0.15
+    ## 5 Ottawa Senators (1917)        63          SEN       258   105         0.30
+    ## 6       St. Louis Eagles         6          SLE        11   105         0.15
+    ##   data.mgoal_level data.hwin_level
+    ## 1             high         100-300
+    ## 2             high       1000-2500
+    ## 3              low           0-100
+    ## 4          low-mid           0-100
+    ## 5          low-mid         100-300
+    ## 6          low-mid           0-100
 
 ### contingency tables
 
@@ -2579,7 +3013,7 @@ g1 <- ggplot(frch_seas_ttl_comb, aes (x=data.hwin_level))
 g1+ geom_bar() + ggtitle("Homewin team counts")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](Project1_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 g2 <- ggplot(frch_seas_ttl_comb, aes (
@@ -2588,7 +3022,7 @@ g2 + geom_bar(position="dodge") +
   ggtitle("Homewin team counts vs Gametype")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
+![](Project1_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
 
 #### histogram
 
@@ -2603,7 +3037,7 @@ g3+ geom_histogram(bins=30) + ggtitle("Histogram for mostTies" )
 
     ## Warning: Removed 2 rows containing non-finite values (stat_bin).
 
-![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](Project1_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 #### box plot
 
@@ -2619,7 +3053,7 @@ g4 <- ggplot (frch_seas_ttl_comb, aes(x=as.factor(data.gameTypeId),
 g4 + geom_boxplot() + ggtitle("Boxplot for gamesPlayed vs gameTypeId ")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](Project1_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 #### scatter plot
 
@@ -2643,6 +3077,6 @@ g5 + geom_point (aes(color= data.gameTypeId))+
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- --> As a
+![](Project1_files/figure-gfm/unnamed-chunk-17-1.png)<!-- --> As a
 conclusion, above functions can conveniently call data from different
 API endpoints and generate nice tables and graphs.

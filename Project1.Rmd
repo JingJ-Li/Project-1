@@ -2,36 +2,48 @@
 title: "Project 1"
 author: "Jingjing Li"
 date: "6/13/2021"
-output: github_document
-    toc: true  
-    toc_depth: 1  
-    toc_float: false  
-    
+output:
+   github_document: 
+     toc: yes
+       
 ---
 # Contents
 ## Introduction  
-This project aims to create a vignette for reading and summarizing data from the National Hockey League’s (NHL) API.  
-
+This project aims at creating some functions to read and analyze data from the National Hockey League’s (NHL) API.  
 
 ## Link to repo  
+Below is the link to reach github repo.  
+
 ## Required packages  
+Following packages are required to run the codes.  
  * httr  
- * jsonlite  
+ * jsonlite 
+ * dplyr
+ * rmarkdown
+ * ggplot2
+ * tidyr
  
 ## Functions  
-### NHL records API 
-#### Load packages
+
+This section is going to introduce several function to contact NHL records API for some endpoints.  
+
+### NHL records API  
+#### Load packages  
+In the first step, a couple of packages are loaded for querying (httr), converting ((jsonlite), manipulating (dplyr), reshaping (tidyr) and plotting data(ggplot2).  
+  
 ```{r, warning=FALSE, message=FALSE}
 # load package to get data from API link
 library(httr)
 library(jsonlite)
 library(dplyr)
+library(ggplot2)
+library(tidyr)
 ```
 
-#### franchise function
-```{r}
-# Construct a function for API data acquisition
+#### franchise function  
+Several functions including `franchise`, `total`,`season`, `goalie`, `skater`, `detail`,`stats`are created to get access to different APIs. If/else arguments are used for choosing ways to different links. Basic idea is that a full url link is established by connect a base url to modifiers which are indicated by sepecified input. `franchise`and `total`adopt options of both`id` and `name` to access the links, others only rely on `id`. To observe full data, both `0` and `full`(`franchise`and `total` ) or `0`(others) are utilized. To validate the functions, two examples are applied to each one. In terms of full dataset, `head` function is used to show partial result. `str` function can return overview of the structure of full dataframe which can serve for the construction of later functions.  
 
+```{r}
 franchise <- function (id,name){
   base_url <- "https://records.nhl.com/site/api/franchise"
   get_url <- GET (base_url)
@@ -39,16 +51,17 @@ franchise <- function (id,name){
   record_json <- fromJSON(record_txt, flatten=TRUE)
   Data_df <- data.frame( record_json)
   if (id==0 & name == "full") {
-   return(Data_df) 
+    return(Data_df) 
   }
-   else{record <- filter(Data_df, data.id==id | data.fullName==name)
-   return(record)
-   }
+    else{record <- filter(Data_df, data.id==id | data.fullName==name)
+    return(record)
+    }
 }
 record_franchise1 <- franchise (2, "Montreal Wanderers")
 record_franchise1
 record_franchise2 <- franchise (0,"full")
-record_franchise2
+head(record_franchise2)
+str(record_franchise2)
 ```
 ```{r}
 total <- function (id, name){
@@ -58,30 +71,29 @@ total <- function (id, name){
   record_txt <- content (get_url, "text", encoding = "UTF-8")
   record_json <- fromJSON(record_txt, flatten=TRUE)
   Data_df <- data.frame( record_json)
-   if (id==0 & name == "full") {
-   return(Data_df) 
+  if (id==0 & name == "full") {
+    return(Data_df) 
   }
-   else{record <- filter(Data_df, data.franchiseId==id | data.teamName==name )
-   }
-  
+    else{record <- filter(Data_df, data.franchiseId==id|
+         data.teamName==name)
+    }
   return(record)
-  }
+}
 record_total1 <- total (2, "Montreal Wanderers")
 record_total1
 record_total2 <- total (0, "full")
-record_total2
+head(record_total2)
 ```
-
 #### season function
 ```{r}
 season <- function (id){
   base_url <- "https://records.nhl.com/site/api/franchise-season-records?cayenneExp=franchiseId"
   if (id==0 ) {
-   get_url <- GET (base_url) 
-   record_txt <- content (get_url , "text", encoding = "UTF-8")
-   record_json <- fromJSON(record_txt, flatten=TRUE)
-   Data_df <- data.frame(record_json)
-    return( list(base_url,Data_df))
+    get_url <- GET (base_url) 
+    record_txt <- content (get_url , "text", encoding = "UTF-8")
+    record_json <- fromJSON(record_txt, flatten=TRUE)
+    Data_df <- data.frame(record_json)
+    return(Data_df)
   }
     else {
       full_url  <-  paste0(base_url,"=",id )	
@@ -89,27 +101,24 @@ season <- function (id){
       record_txt <- content (get_url , "text", encoding = "UTF-8")
       record_json <- fromJSON(record_txt, flatten=TRUE)
       Data_df <- data.frame(record_json)
-      return( list(full_url,Data_df))
+      return( Data_df)
     }
-
- 
 }
-record_season <- season (9)
-record_season       
-record_season <- season (0)
-record_season       
+record_season1 <- season (9)
+record_season1  
+record_season2 <- season (0)
+head(record_season2)
 ```
 #### goalie function
 ```{r}
-
 goalie<- function (id){
   base_url <- "https://records.nhl.com/site/api/franchise-goalie-records?cayenneExp=franchiseId"
-   if (id==0 ) {
-  get_url <- GET (base_url) 
-   record_txt <- content (get_url , "text", encoding = "UTF-8")
-   record_json <- fromJSON(record_txt, flatten=TRUE)
-   Data_df <- data.frame(record_json)
-    return( list(base_url,Data_df))
+  if (id==0 ) {
+    get_url <- GET (base_url) 
+    record_txt <- content (get_url , "text", encoding = "UTF-8")
+    record_json <- fromJSON(record_txt, flatten=TRUE)
+    Data_df <- data.frame(record_json)
+    return(Data_df)
   }
     else {
       full_url  <-  paste0(base_url,"=",id )	
@@ -117,26 +126,24 @@ goalie<- function (id){
       record_txt <- content (get_url , "text", encoding = "UTF-8")
       record_json <- fromJSON(record_txt, flatten=TRUE)
       Data_df <- data.frame(record_json)
-      return( list(full_url,Data_df))
+      return(Data_df)
     }
 }
 record_goalie1<- goalie (6)
-record_goalie1
-str(record_goalie1)
-record_goalie2 <- goalie (0)
-record_goalie2
- 
+head(record_goalie1)
+record_goalie2<- goalie (0)
+head(data.frame(record_goalie2))
 ```
-skater function
+#### skater function  
 ```{r}
 skater <- function (id,...){
   base_url <- "https://records.nhl.com/site/api/franchise-skater-records?cayenneExp=franchiseId"
   if (id==0 ) {
-get_url <- GET (base_url) 
-   record_txt <- content (get_url , "text", encoding = "UTF-8")
-   record_json <- fromJSON(record_txt, flatten=TRUE)
-   Data_df <- data.frame(record_json)
-    return( list(base_url,Data_df))
+    get_url <- GET (base_url) 
+    record_txt <- content (get_url , "text", encoding = "UTF-8")
+    record_json <- fromJSON(record_txt, flatten=TRUE)
+    Data_df <- data.frame(record_json)
+    return(Data_df)
   }
     else {
       full_url  <-  paste0(base_url,"=",id )	
@@ -144,24 +151,23 @@ get_url <- GET (base_url)
       record_txt <- content (get_url , "text", encoding = "UTF-8")
       record_json <- fromJSON(record_txt, flatten=TRUE)
       Data_df <- data.frame(record_json)
-      return( list(full_url,Data_df))
+      return(Data_df)
     }
 }
-record_skater1 <- skater( 6 )
-record_skater1
-str(record_skater1)
-record_skater2 <- skater( 0 )
-record_skater2
+record_skater1 <- skater( 2 )
+head(record_skater1)
+record_skater1 <- skater( 0 )
+head(data.frame(record_skater1))
 ```
 #### detail function
 ```{r}
 detail<- function (id,...){
   base_url <- "https://records.nhl.com/site/api/franchise-detail?cayenneExp=mostRecentTeamId"
   if (id==0 ) {
-get_url <- GET (base_url) 
-   record_txt <- content (get_url , "text", encoding = "UTF-8")
-   record_json <- fromJSON(record_txt, flatten=TRUE)
-   Data_df <- data.frame(record_json)
+    get_url <- GET (base_url) 
+    record_txt <- content (get_url , "text", encoding = "UTF-8")
+    record_json <- fromJSON(record_txt, flatten=TRUE)
+    Data_df <- data.frame(record_json)
     return( list(base_url,Data_df))
   }
     else {
@@ -171,17 +177,20 @@ get_url <- GET (base_url)
       record_json <- fromJSON(record_txt, flatten=TRUE)
       Data_df <- data.frame(record_json)
       return( list(full_url,Data_df))
-  }
+    }
 }
-record_detail <- detail( 2 )
+record_detail <- detail( 1 )
 record_detail
 record_detail <- detail( 0 )
-record_detail
+head(data.frame(record_detail))
+
 ```
 
 
-### NHL stats API
-
+### NHL stats API  
+  
+`stats` function is created to connect to NHL stats API. a logic argument `is.numeric`is used to return single or full records. A input number will call a single record with corresponding `id`. Any no number , for example `teams` (in following example) will read the full data.Note that here full data is actually a group of datasets.  
+  
 ```{r}
 stats <- function(id, ... ) {
   base_url2 <- "https://statsapi.web.nhl.com/api/v1/teams/" 
@@ -189,7 +198,7 @@ stats <- function(id, ... ) {
     apiurl <- paste0 (base_url2, id, "/?expand=team.stats")
   }
   if (!is.numeric (id)) {
-      apiurl<- paste0 (base_url2, "?expand=team.stats")
+    apiurl<- paste0 (base_url2, "?expand=team.stats")
     }
   team <- GET (apiurl)
   team_txt <- content (team,"text", encoding="UTF-8")
@@ -200,11 +209,15 @@ stats <- function(id, ... ) {
    stats_data <- stats (2)
    stats_data
    stats_data2 <- stats ("teams")
-   stats_data2
+   head(stats_data2)
+   str(stats_data)
 ```
-## wrapper function
+### wrapper function  
+  
+A wrapper function is constructed in order to control the access to any of above endpoints. The functions will be called via if/else statements by inputting different modifiers. As mentioned above, `id` or its combination with `name` will return single record or full data (when `id` is `0` .  
+
 ```{r}
-wrapper <- function (modifier, id,name,...) {
+wrapper <- function (modifier,id,name,...) {
   if (modifier == "franchise") {
     franchise_Data <- franchise (id,name)
     franchise_Data
@@ -236,32 +249,141 @@ wrapper <- function (modifier, id,name,...) {
 }
 result1 <- wrapper ("franchise", 2, "Montreal Wanderers")
 result1
-result2 <- wrapper ("stats", 2)
-result2
-result3 <- wrapper ("skater",0)
+result2 <- wrapper ("skater", 0)
+head(data.frame(result2))
+result3 <- wrapper ("stats", 2)
 result3
+
 ```
   
-## Exploratory Data analysis 
+## Exploratory Data analysis  
+Next applications of above constructed functions will be elaborated via several examples.  
+
+### Data from two endpoints  
+
+Below are examples of reading data using wrapper functions from three different ends API end points and combine them using inner_join function twice.  
 
 ```{r}
-goalie_data <- wrapper ("goalie", 6)
-goalie_data <- data.frame(goalie_data) %>% group_by (data.franchiseId, data.franchiseName  )
-skater_data <- wrapper ("skater", 6)
-skater_data <- data.frame (skater_data)
-franchise_data <- wrapper ("franchise", 2, "Montreal Wanderers")
-franchise_data
-total_Data <- wrapper ("totals", 2, "Montreal Wanderers")
-total_Data
-gp_sk_comb <- inner_join(goalie_data, skater_data, by=(c("data.franchiseId","data.franchiseName"))
+franchise_Data <- wrapper ("franchise",0, "full")
+franchise_Data <- rename(franchise_Data, data.franchiseId = data.id  )
+head (franchise_Data) 
+
+season_Data <-wrapper ("season",0 )
+head(season_Data)
+
+total_Data <- wrapper ("totals",0,"full" )
+head(total_Data)
+
+frch_seas_comb <- inner_join(franchise_Data, season_Data [ ,-1], copy=TRUE, by=("data.franchiseId"))
+head(frch_seas_comb) 
+
+frch_seas_ttl_comb <- inner_join (frch_seas_comb, total_Data [ ,-1], copy=TRUE, by=("data.franchiseId"))
+head(frch_seas_ttl_comb)  
+```
+  
+### New variables  
+Shown below are three newly generated variables. data.win_pct denotes the ratio of data.homewins to the data.gamePlayed which can reflect the success rates of teams. data.mgoal_level classified mostgoals into several levels , which is convenient for summary. Similarily, data.hwin_level divide data.homewins into five classes, which is favorable for comparison of different teams. Finally, above three new variants are all included into dataset which is renamed as `frch_seas_ttl_comb`.  
+  
+```{r}
+data.win_pct=round(frch_seas_ttl_comb$data.homeWins/
+                     frch_seas_ttl_comb$data.gamesPlayed,2)
+  
+data.mgoal_level <- cut(frch_seas_ttl_comb$data.mostGoals, 
+                        breaks=c(0,120,200,300,400),
+                        labels=c("low","low-mid","high-mid","high"))
+
+data.hwin_level <- cut(frch_seas_ttl_comb$data.homeWins,
+                       breaks=c(0, 100, 300, 500,  1000, 2500 ),
+                       labels=c("0-100","100-300","300-500","500-1000", "1000-2500"))
+
+frch_seas_ttl_comb <-mutate(frch_seas_ttl_comb,data.win_pct,
+                            data.mgoal_level,data.hwin_level)
+head(frch_seas_ttl_comb) 
+```
+### contingency tables  
+Using dataset obtained through created functions, four contingency tables generated by`table`function are exhibited below to illustrate the frequencies of related variables. tab1, tab2 and tab3 are two-way tables, while tab4 is a three-way table. In tab1  rows denote different franchise names (or team names) and columns represent two game types. It can be seen two teams, "Arizona Coyotes" and "Toronto Maple Leafs" show highest counts for both gametype (only first six records are listed), while "Montreal Wanderers" only involves in one gametype . tab2 exposed comparison of mostgoals of each team. Among visible records, "Arizona Coyotes" has highest counts of high level corresponding to between 300 and 400. tab3 demonstrate twos types of games have significantly different counts of data.homewins where type2 distributes at different levels of data.homewins, while type3 mainly focus at lowest level (0-100) and a little at the second level (100-300) . tab4 comprises two portions separated by gameTypeid where 2 exhibits spreading distribution, 3 only focus on lowest two levels.       
+```{r}
+tab1 <-table(frch_seas_ttl_comb$data.franchiseName,
+             frch_seas_ttl_comb$data.gameTypeId )
+head(tab1)
+
+tab2 <- table(frch_seas_ttl_comb$data.franchiseName,
+              frch_seas_ttl_comb$data.mgoal_level  )
+head(tab2)
+
+tab3 <- table(frch_seas_ttl_comb$data.gameTypeId,
+             frch_seas_ttl_comb$data.hwin_level)
+head(tab3)
+
+tab4 <- table(frch_seas_ttl_comb$data.franchiseName,
+              frch_seas_ttl_comb$data.hwin_level,
+              frch_seas_ttl_comb$data.gameTypeId  )
+head(tab4)
+```
+
+### numerical summary  
+  
+This portions introduces three numerical summary tables with variables of `min`,`mean`.`median`, `max`and `sd` for `data.homewins`, `data.homelosses`and `data.win_pct(homewin rate)`based on the data queried via above functions.The combined data is first grouped by data.franchiseNAme using `group_by()` function, a categorical variable and then subjected to statistic analysis. chaining function `%>%` is used to connect continuous operations.
+
+```{r, message= FALSE}
+hwin_sum <- frch_seas_ttl_comb %>%  group_by( data.franchiseName)  %>%
+ summarise(min=min(data.homeWins),avg=mean(data.homeWins),med=median(data.homeWins),max=(data.homeWins), sd=sd(data.homeWins)) 
+head(hwin_sum)
+
+hloss_sum <- frch_seas_ttl_comb %>%  group_by( data.franchiseName)  %>%
+ summarise(min=min(data.homeLosses),avg=mean(data.homeLosses),med=median(data.homeLosses),max=(data.homeLosses), sd=sd(data.homeLosses)) 
+head(hloss_sum)
+
+win_pct_sum <- frch_seas_ttl_comb %>%  group_by( data.franchiseName)  %>% summarise(min=min(data.win_pct),avg=mean(data.win_pct),med=median(data.win_pct),max=(data.win_pct), sd=sd(data.win_pct)) 
+head(win_pct_sum) 
+```
+
+### Five plots  
+  
+Five plots are used to disclose some typical data.   
+
+#### bar plot  
+  
+Data of data.homewins levels obtained via aforementioned functions are plotted using`ggplot()` and `geom_bar()`.The first argument of `ggplot()` is the dataset name, the second use `Aesthetic(Aes)` to introduce a variable as x axis which is then mapped to `geom_bar()` The first bar graph compares total counts of different data.homewin levels where the lowest levels has the highest counts. The second introduces an additional variable, data.gameTypeid to stress the effect of different game type. While the counts of type 2 are distributed at all levels, those of type 3 focus on the lowest two levels.  
+```{r}
+g1 <- ggplot(frch_seas_ttl_comb, aes (x=data.hwin_level))
+g1+ geom_bar() + ggtitle("Homewin team counts")
+
+g2 <- ggplot(frch_seas_ttl_comb, aes (
+  x=data.hwin_level, fill=as.factor(data.gameTypeId)))
+g2 + geom_bar(position="dodge") + 
+  ggtitle("Homewin team counts vs Gametype")
+```
+
+#### histogram  
+  
+Histogram graph is used to plot the counts against different values of `data.mostTies` variable in generated dataset using ggplot and geom_histogram.It can be seen the counts are highest at 20.
+```{r}
+g3 <- ggplot(frch_seas_ttl_comb, aes(x=data.mostTies))
+g3+ geom_histogram(bins=30) + ggtitle("Histogram for mostTies" )
 
 ```
 
-### Data from two endpoints
-### New variables
-### contingency tables
-### Five plots
-#### bar plot
-#### histogram
-#### box plot
-#### scatter plot
+#### box plot  
+A box plot is produced by apply `ggplot()` and `geom_boxplot` to resulted data using above function. Note that as data.gameTypeId is `numeric`, it needs to be converted to `character`using `as.factor`function. It can be seen that gameType2 has much higher value than gameType3. In addition, 3the latter has some outliers. 
+
+```{r}
+g4 <- ggplot (frch_seas_ttl_comb, aes(x=as.factor(data.gameTypeId), 
+                                      y=  data.gamesPlayed))
+g4 + geom_boxplot() + ggtitle("Boxplot for gamesPlayed vs gameTypeId ")
+ 
+```
+ 
+#### scatter plot  
+Lastly, a scatter graph is generated by plotting `data.homeLosses` against `data.homeWins`. An additional variable, `data.gameTypeId`is used to group data. For grouping, `data.gameTypeId`is converted to categorical variable. `geom_point()` is combined with `ggplot()` together. `geom()` with the argument of `method=lm` return a regression line. The scatter plot display linear relationship between `data.homeWins`and `data.homeLosses`. 
+```{r}
+frch_seas_ttl_comb$data.gameTypeId <-
+  as.factor(frch_seas_ttl_comb$data.gameTypeId)
+g5 <- ggplot (frch_seas_ttl_comb, aes( x=data.homeWins,
+               y=data.homeLosses, group= data.gameTypeId))
+g5 + geom_point (aes(color= data.gameTypeId))+ 
+  geom_smooth(method=lm, color="purple") +
+  ggtitle ("Scatter plot for homewins vs homelosses")
+
+```
+As a conclusion, above functions can conveniently call data from different API endpoints and generate nice tables and graphs. 

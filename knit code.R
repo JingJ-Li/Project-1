@@ -1,2 +1,2 @@
-rmarkdown::render("PRoject 1.Rmd","READE.md")
 library(rmarkdown)
+rmarkdown::render("Project1.Rmd",output_file = "README.md")
