@@ -2643,6 +2643,7 @@ g5 + geom_point (aes(color= data.gameTypeId))+
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- --> As a
-conclusion, above functions can conveniently call data from different
-API endpoints and generate nice tables and graphs.
+![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+
+As a conclusion, above functions can conveniently call data from
+different API endpoints and generate nice tables and graphs.

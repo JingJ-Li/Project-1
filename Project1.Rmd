@@ -386,4 +386,5 @@ g5 + geom_point (aes(color= data.gameTypeId))+
   ggtitle ("Scatter plot for homewins vs homelosses")
 
 ```
+  
 As a conclusion, above functions can conveniently call data from different API endpoints and generate nice tables and graphs. 
